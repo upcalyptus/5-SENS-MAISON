@@ -15,7 +15,7 @@ Le menu est un plan : chaque pièce a son numéro, son nom et ce qu'on y trouve.
 
 | N° | Pièce | Adresse | État |
 |----|-------|---------|------|
-| 00 | Le Seuil | / | page d'accueil actuelle (public/index.html) |
+| 00 | Le Seuil | / | accueil (public/index.html) : navigation vers les pièces et section « Plan de la maison » |
 | 01 | Le Label | /label | ouverte |
 | 02 | Les cinq sens | /cinq-sens | ouverte |
 | 03 | La Méthode | /methode | ouverte |
