@@ -22,7 +22,6 @@ const next = suivante(chemin);
 </head>
 <body>
 <a class="skip" href="#contenu">Aller au contenu</a>
-<div class="lumiere l1" aria-hidden="true"></div><div class="lumiere l2" aria-hidden="true"></div>
 <header class="entete" id="entete">
   <div class="wrap">
     <a class="marque" href="/"><img src="/assets/plaque.webp" width="404" height="410" alt=""><span><b>5 SENS COLLECTION</b><small>Label d'excellence sensorielle</small></span></a>
@@ -33,7 +32,7 @@ const next = suivante(chemin);
   </div>
 </header>
 <div class="plan" id="plan" role="dialog" aria-modal="true" aria-label="Plan de la maison">
-  <div class="plan-img"><img id="plan-image" src={ouvertes[1].img} alt=""></div>
+  <div class="plan-img"><img id="plan-image" src={ouvertes[1].img.replace(".webp","-sm.webp")} alt="" loading="lazy"></div>
   <div class="plan-corps">
     <button class="plan-fermer" id="plan-fermer">Fermer</button>
     <span class="eyebrow">Plan de la maison</span>
@@ -46,7 +45,7 @@ const next = suivante(chemin);
 </div>
 <main id="contenu">
   <section class="seuil">
-    <figure class="seuil-img" id="seuil-img"><img src={image} alt="" fetchpriority="high" data-vitesse="0.12"></figure>
+    <figure class="seuil-img" id="seuil-img"><img src={image} srcset={`${image.replace(".webp","-sm.webp")} 900w, ${image} 1800w`} sizes="100vw" alt="" fetchpriority="high" data-vitesse="0.08"></figure>
     <div class="cartel">
       <p class="piece">Pièce {piece}</p>
       <slot name="seuil" />
@@ -55,7 +54,7 @@ const next = suivante(chemin);
   </section>
   <slot />
   <a class="depart" href={next.href} id="depart">
-    <figure id="depart-img"><img src={next.img} alt="" loading="lazy" data-vitesse="0.08"></figure>
+    <figure id="depart-img"><img src={next.img} srcset={`${next.img.replace(".webp","-sm.webp")} 900w, ${next.img} 1800w`} sizes="100vw" alt="" loading="lazy" data-vitesse="0.06"></figure>
     <div>
       <p class="adieu">{adieu}</p>
       <span class="eyebrow">Pièce suivante · {next.n}</span>
@@ -71,22 +70,20 @@ const next = suivante(chemin);
   <p>Paris · Genève · Côte d'Azur · contact@5senscollection.com · <span class="heure" id="heure"></span></p>
 </footer>
 <script>
-  import Lenis from 'lenis';
   const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const lenis = reduit ? null : new Lenis({ lerp: 0.085, wheelMultiplier: 0.9 });
   // En-tête qui se pose au défilement
   const ent = document.getElementById('entete');
   // Le plan de la maison
   const plan = document.getElementById('plan'), ouvrir = document.getElementById('plan-ouvrir'), fermer = document.getElementById('plan-fermer'), pimg = document.getElementById('plan-image');
-  const toggle = (o) => { plan.classList.toggle('ouvert', o); ouvrir.setAttribute('aria-expanded', String(o)); document.body.style.overflow = o ? 'hidden' : ''; o ? lenis?.stop() : lenis?.start(); (o ? fermer : ouvrir).focus(); };
+  const toggle = (o) => { plan.classList.toggle('ouvert', o); ouvrir.setAttribute('aria-expanded', String(o)); document.body.style.overflow = o ? 'hidden' : ''; (o ? fermer : ouvrir).focus(); };
   ouvrir.addEventListener('click', () => toggle(true)); fermer.addEventListener('click', () => toggle(false));
   addEventListener('keydown', e => { if (e.key === 'Escape' && plan.classList.contains('ouvert')) toggle(false); });
-  plan.querySelectorAll('li a').forEach(a => a.addEventListener('mouseenter', () => { pimg.src = a.dataset.img; }));
+  plan.querySelectorAll('li a').forEach(a => a.addEventListener('mouseenter', () => { pimg.src = a.dataset.img.replace('.webp', '-sm.webp'); }));
   // Transition entre les pièces : l'image de la pièce suivante devient le seuil de la page d'après
   document.getElementById('depart').addEventListener('click', () => { document.getElementById('seuil-img').style.viewTransitionName = 'none'; document.getElementById('depart-img').style.viewTransitionName = 'piece'; });
   // Titres révélés mot à mot (texte complet conservé pour les lecteurs d'écran)
   document.querySelectorAll('[data-mots]').forEach(el => { const t = el.textContent.trim(); el.setAttribute('aria-label', t);
-    el.innerHTML = t.split(/\s+/).map((w, i) => `<span class="m" aria-hidden="true" style="transition-delay:${Math.min(i * 45, 900)}ms">${w}</span>`).join(' '); el.classList.add('rv'); });
+    el.innerHTML = t.split(/\s+/).map((w, i) => `<span class="m" aria-hidden="true" style="transition-delay:${Math.min(i * 22, 360)}ms">${w}</span>`).join(' '); el.classList.add('rv'); });
   const els = [...document.querySelectorAll('.rv,.revele,[data-mots]')];
   const para = [...document.querySelectorAll('[data-vitesse]')];
   const galerie = document.querySelector('.galerie'), piste = galerie?.querySelector('.piste'), barre = galerie?.querySelector('.barre'), comp = galerie ? [...galerie.querySelectorAll('.compteur i')] : [];
@@ -97,7 +94,7 @@ const next = suivante(chemin);
   function frame(){
     const vh = innerHeight;
     ent.classList.toggle('pose', scrollY > 40);
-    for (const el of els) if (!el.classList.contains('vu') && el.getBoundingClientRect().top < vh * 0.9) el.classList.add('vu');
+    for (let i = els.length - 1; i >= 0; i--) { const el = els[i]; if (el.getBoundingClientRect().top < vh * 0.9) { el.classList.add('vu'); els.splice(i, 1); } }
     if (!reduit) for (const el of para) { const r = el.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) continue; el.style.transform = `translate3d(0,${((r.top + r.height / 2) - vh / 2) * -parseFloat(el.dataset.vitesse)}px,0)`; }
     if (galerie && grand()) { const r = galerie.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (r.height - vh)));
       // chaque salon reste posé, puis glisse vers le suivant (jamais deux moitiés de salon à l'écran)
@@ -107,8 +104,10 @@ const next = suivante(chemin);
       if (a !== dernier) { dernier = a; etapes.forEach((e, i) => e.classList.toggle('active', i === a)); hEl.textContent = etapes[a].dataset.h; mEl.textContent = etapes[a].dataset.m; } }
     if (objet && !reduit) { const r = objet.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (r.height - vh))); objImg.style.transform = `perspective(1400px) rotateY(${-28 + p * 56}deg) rotateX(${6 - p * 6}deg) scale(${.92 + p * .12})`; }
   }
-  function boucle(t){ lenis?.raf(t); frame(); requestAnimationFrame(boucle); }
-  requestAnimationFrame(boucle);
+  // Rien ne tourne en permanence : un seul calcul par image, et seulement quand on défile ou redimensionne
+  let enAttente = false;
+  const demande = () => { if (enAttente) return; enAttente = true; requestAnimationFrame(() => { enAttente = false; frame(); }); };
+  addEventListener('scroll', demande, { passive: true }); addEventListener('resize', demande); frame(); setTimeout(frame, 300);
   // La lumière suit l'heure de la visite (?lumiere=aube|jour|doree|nuit pour prévisualiser)
   const noms = { aube: "l'aube", jour: 'le plein jour', doree: "l'heure dorée", nuit: 'la nuit' };
   const forcee = new URLSearchParams(location.search).get('lumiere');

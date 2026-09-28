@@ -42,3 +42,11 @@ Le menu est un plan : chaque pièce a son numéro, son nom et ce qu'on y trouve.
 ## À venir
 
 Version anglaise (/en/…), outil d'édition (/admin), accueil reconstruit dans la même architecture, pièces 06 à 09.
+
+## Performance (version 4)
+
+- Plus de calques de fusion plein écran pour la lumière selon l'heure (ils recalculaient toute la page à chaque image) : les fonds sont légèrement teintés à la place, sur l'accueil comme dans les pièces.
+- Défilement natif dans les pièces (plus de défilement « lissé » qui donnait une impression de lenteur), calculs uniquement pendant le défilement.
+- Animations raccourcies (0,5 s au lieu de 0,8 à 2 s), sections moins hautes, images en deux tailles (téléphone et grand écran).
+- Mesure sur processeur ralenti ×4 : images de plus de 50 ms pendant le défilement, de 103–216 à 1–3 par page.
+- Ne pas réintroduire de `mix-blend-mode` sur un élément plein écran fixe.
