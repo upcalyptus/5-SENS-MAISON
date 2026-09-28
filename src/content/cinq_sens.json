@@ -1,0 +1,284 @@
+{
+ "fr": {
+  "titre": "Les cinq sens",
+  "description": "Le référentiel 5 Sens Collection, sens par sens : la Vue, l’Ouïe, l’Odorat, le Goût, le Toucher, et ce que nous mesurons dans chacun.",
+  "adieu": "Cinq sens, plus de cent critères. Reste à savoir comment on les observe sans être vu.",
+  "h1": "Chaque sens est une promesse.",
+  "chapeau": "Voici le référentiel : ce que nous observons dans chaque sens, et ce que nous mesurons.",
+  "s1_sur": "Cinq salons, une seule maison",
+  "s1_titre": "Les sens décident avant vous.",
+  "s1_texte": "Vos hôtes ressentent d’abord, puis cherchent une raison à ce qu’ils ont ressenti. Chaque salon présente trois de nos critères et la mesure qui les accompagne. Le référentiel complet en compte plus de cent.",
+  "sens": [
+   {
+    "nom": "La Vue",
+    "mot": "Vue",
+    "phrase": "Ce que l’œil perçoit avant de le comprendre.",
+    "texte": "Harmonie des sources lumineuses, mise en valeur des matières, perspectives dégagées, cohérence chromatique de jour comme de nuit.",
+    "criteres": [
+     [
+      "Scénographie lumineuse",
+      "Température de couleur, transitions du jour au soir."
+     ],
+     [
+      "Cadrages et perspectives",
+      "Ouvertures sur la nature, absence de pollution visuelle."
+     ],
+     [
+      "Détails d’orfèvrerie",
+      "Patine des matières, netteté des finitions."
+     ]
+    ],
+    "mesure": "Température de couleur",
+    "bornes": [
+     "2 700 K · le soir",
+     "4 000 K · le jour"
+    ]
+   },
+   {
+    "nom": "L’Ouïe",
+    "mot": "Ouïe",
+    "phrase": "Le luxe le plus rare est parfois le silence.",
+    "texte": "Acoustique d’exception, neutralité des bruits techniques, signatures musicales enveloppantes, préservation du silence.",
+    "criteres": [
+     [
+      "Le silence de nuit",
+      "Isolation phonique sous 20 dBA dans les chambres."
+     ],
+     [
+      "Ambiance feutrée",
+      "Aucun écho, matières absorbantes nobles."
+     ],
+     [
+      "Signature sonore",
+      "Une programmation qui suit le rythme du jour."
+     ]
+    ],
+    "mesure": "Niveau sonore de nuit, dans la chambre",
+    "bornes": [
+     "0 dBA",
+     "Seuil 5 Sens : 20 dBA",
+     "60 dBA"
+    ]
+   },
+   {
+    "nom": "L’Odorat",
+    "mot": "Odorat",
+    "phrase": "La mémoire la plus durable, et la moins pilotée.",
+    "texte": "Une identité olfactive signature et mémorable, la pureté de l’air, l’absence de rémanences parasites.",
+    "criteres": [
+     [
+      "Sillage signature",
+      "Fragrance haute parfumerie diffusée à froid."
+     ],
+     [
+      "Fraîcheur de l’air",
+      "Ventilation imperceptible, linge neutre."
+     ],
+     [
+      "Mémoire olfactive",
+      "Un ancrage dès le pas de la porte."
+     ]
+    ],
+    "mesure": "Où l’on sent la maison",
+    "bornes": [
+     "Le seuil",
+     "Le lobby",
+     "La chambre",
+     "Le linge"
+    ]
+   },
+   {
+    "nom": "Le Goût",
+    "mot": "Goût",
+    "phrase": "Une infusion servie à l’arrivée dit plus qu’un long discours.",
+    "texte": "Gastronomie d’auteur, rituels de table méticuleux, produits d’exception du territoire, mixologie de précision.",
+    "criteres": [
+     [
+      "Rituels d’accueil",
+      "Une infusion ou un élixir servi dès l’arrivée."
+     ],
+     [
+      "Précision de table",
+      "Céramique d’artisan, cristal taillé."
+     ],
+     [
+      "Identité culinaire",
+      "Une cuisine qui célèbre son territoire."
+     ]
+    ],
+    "mesure": "Trois moments observés",
+    "bornes": [
+     "L’arrivée",
+     "La table",
+     "Le départ"
+    ]
+   },
+   {
+    "nom": "Le Toucher",
+    "mot": "Toucher",
+    "phrase": "Ce que la main retient quand l’œil a oublié.",
+    "texte": "Noblesse des matières au contact direct, densité textile d’exception, ergonomie des poignées et des surfaces minérales.",
+    "criteres": [
+     [
+      "Linge d’exception",
+      "Densité, tombé et douceur au premier contact."
+     ],
+     [
+      "Matières vivantes",
+      "Pierre, chêne brossé, laiton chaud sous la paume."
+     ],
+     [
+      "Thermique de contact",
+      "La juste température des sols et des assises."
+     ]
+    ],
+    "mesure": "Densité du linge",
+    "bornes": [
+     "0 fil",
+     "Référence : 600 fils"
+    ]
+   }
+  ]
+ },
+ "en": {
+  "titre": "The five senses",
+  "description": "The 5 Sens Collection framework, sense by sense: Sight, Hearing, Scent, Taste and Touch, and what we measure in each.",
+  "adieu": "Five senses, more than a hundred criteria. It remains to see how they are observed without being seen.",
+  "h1": "Each sense is a promise.",
+  "chapeau": "This is the framework: what we observe in each sense, and what we measure.",
+  "s1_sur": "Five salons, one house",
+  "s1_titre": "The senses decide before you do.",
+  "s1_texte": "Your guests feel first, and only then look for a reason. Each salon presents three of our criteria and the measure that goes with them. The full framework holds more than a hundred.",
+  "sens": [
+   {
+    "nom": "Sight",
+    "mot": "Sight",
+    "phrase": "What the eye perceives before it understands.",
+    "texte": "Harmony of light, materials shown at their best, open sightlines, a palette that holds by day and by night.",
+    "criteres": [
+     [
+      "Lighting",
+      "Colour temperature, the passage from day into dusk."
+     ],
+     [
+      "Framing and sightlines",
+      "Views onto nature, nothing to distract the eye."
+     ],
+     [
+      "The finer details",
+      "The patina of materials, impeccable finishes."
+     ]
+    ],
+    "mesure": "Colour temperature",
+    "bornes": [
+     "2,700 K · evening",
+     "4,000 K · daytime"
+    ]
+   },
+   {
+    "nom": "Hearing",
+    "mot": "Hearing",
+    "phrase": "The rarest luxury is sometimes silence.",
+    "texte": "Exceptional acoustics, technical noise kept out of earshot, enveloping music and silence preserved.",
+    "criteres": [
+     [
+      "Silence at night",
+      "Sound insulation below 20 dBA in the bedrooms."
+     ],
+     [
+      "A hushed atmosphere",
+      "No echo; noble materials that absorb sound."
+     ],
+     [
+      "A signature in sound",
+      "Music that follows the hours of the day."
+     ]
+    ],
+    "mesure": "Night-time sound level, in the bedroom",
+    "bornes": [
+     "0 dBA",
+     "5 Sens threshold: 20 dBA",
+     "60 dBA"
+    ]
+   },
+   {
+    "nom": "Scent",
+    "mot": "Scent",
+    "phrase": "The most enduring memory, and the least considered.",
+    "texte": "A signature scent that stays in the memory, pure air, and nothing lingering that should not.",
+    "criteres": [
+     [
+      "A signature trail",
+      "Fine fragrance, diffused cold."
+     ],
+     [
+      "Fresh air",
+      "Imperceptible ventilation, linen that smells of nothing."
+     ],
+     [
+      "Scent memory",
+      "An anchor from the very first step."
+     ]
+    ],
+    "mesure": "Where the house can be smelt",
+    "bornes": [
+     "The threshold",
+     "The lobby",
+     "The bedroom",
+     "The linen"
+    ]
+   },
+   {
+    "nom": "Taste",
+    "mot": "Taste",
+    "phrase": "An infusion served on arrival says more than any speech.",
+    "texte": "Cuisine with an author, meticulous rituals at table, the finest local produce and precise mixology.",
+    "criteres": [
+     [
+      "Rituals of welcome",
+      "An infusion or elixir, served on arrival."
+     ],
+     [
+      "Precision at table",
+      "Hand-thrown ceramics, cut crystal."
+     ],
+     [
+      "A culinary identity",
+      "A cuisine that honours its land."
+     ]
+    ],
+    "mesure": "Three moments observed",
+    "bornes": [
+     "Arrival",
+     "The table",
+     "Departure"
+    ]
+   },
+   {
+    "nom": "Touch",
+    "mot": "Touch",
+    "phrase": "What the hand remembers when the eye has forgotten.",
+    "texte": "Noble materials at the point of touch, linen of rare density, handles and stone surfaces that feel right in the hand.",
+    "criteres": [
+     [
+      "Exceptional linen",
+      "Density, drape and softness at first touch."
+     ],
+     [
+      "Living materials",
+      "Stone, brushed oak, brass warm beneath the palm."
+     ],
+     [
+      "Temperature to the touch",
+      "Floors and seating at just the right temperature."
+     ]
+    ],
+    "mesure": "Density of the linen",
+    "bornes": [
+     "0 threads",
+     "Reference: 600 threads"
+    ]
+   }
+  ]
+ }
+}

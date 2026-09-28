@@ -1,0 +1,1269 @@
+# Outil d'édition 5 Sens Collection. Remplacer repo et base_url (voir EDITION.md).
+backend:
+  name: github
+  repo: VOTRE-COMPTE/5-sens-maison
+  branch: main
+  base_url: https://5senscollection.com
+  auth_endpoint: api/auth
+locale: fr
+media_folder: public/assets
+public_folder: /assets
+collections:
+- name: site
+  label: Le site
+  files:
+  - name: commun
+    label: Textes communs (menu, pied de page)
+    file: src/content/commun.json
+    fields:
+    - name: fr
+      label: Français
+      widget: object
+      collapsed: true
+      fields:
+      - name: marque
+        label: Marque
+        widget: string
+      - name: reserver
+        label: Reserver
+        widget: string
+      - name: plan
+        label: Plan
+        widget: string
+      - name: fermer
+        label: Fermer
+        widget: string
+      - name: plan_titre
+        label: Plan titre
+        widget: string
+      - name: piece
+        label: Piece
+        widget: string
+      - name: suivante
+        label: Suivante
+        widget: string
+      - name: entrer
+        label: Entrer
+        widget: string
+      - name: defiler
+        label: Defiler
+        widget: string
+      - name: contenu
+        label: Contenu
+        widget: string
+      - name: lieux
+        label: Lieux
+        widget: string
+      - name: mentions
+        label: Mentions
+        widget: string
+      - name: confidentialite
+        label: Confidentialite
+        widget: string
+      - name: langue
+        label: Langue
+        widget: string
+      - name: heures
+        label: Heures
+        widget: object
+        collapsed: true
+        fields:
+        - name: aube
+          label: Aube
+          widget: string
+        - name: jour
+          label: Jour
+          widget: string
+        - name: doree
+          label: Doree
+          widget: string
+        - name: nuit
+          label: Nuit
+          widget: string
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: marque
+        label: Marque
+        widget: string
+      - name: reserver
+        label: Reserver
+        widget: string
+      - name: plan
+        label: Plan
+        widget: string
+      - name: fermer
+        label: Fermer
+        widget: string
+      - name: plan_titre
+        label: Plan titre
+        widget: string
+      - name: piece
+        label: Piece
+        widget: string
+      - name: suivante
+        label: Suivante
+        widget: string
+      - name: entrer
+        label: Entrer
+        widget: string
+      - name: defiler
+        label: Defiler
+        widget: string
+      - name: contenu
+        label: Contenu
+        widget: string
+      - name: lieux
+        label: Lieux
+        widget: string
+      - name: mentions
+        label: Mentions
+        widget: string
+      - name: confidentialite
+        label: Confidentialite
+        widget: string
+      - name: langue
+        label: Langue
+        widget: string
+      - name: heures
+        label: Heures
+        widget: object
+        collapsed: true
+        fields:
+        - name: aube
+          label: Aube
+          widget: string
+        - name: jour
+          label: Jour
+          widget: string
+        - name: doree
+          label: Doree
+          widget: string
+        - name: nuit
+          label: Nuit
+          widget: string
+  - name: pieces
+    label: Plan de la maison
+    file: src/content/pieces.json
+    fields:
+    - name: fr
+      label: Français
+      widget: list
+      field:
+        name: element
+        label: Élément
+        widget: list
+        field:
+          name: texte
+          label: Texte
+          widget: string
+    - name: en
+      label: English
+      widget: list
+      field:
+        name: element
+        label: Élément
+        widget: list
+        field:
+          name: texte
+          label: Texte
+          widget: string
+  - name: label
+    label: Pièce 01 · Le Label
+    file: src/content/label.json
+    fields:
+    - name: fr
+      label: Français
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: text
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: s1_a
+        label: S1 a
+        widget: text
+      - name: s1_b
+        label: S1 b
+        widget: text
+      - name: objet
+        label: Objet
+        widget: string
+      - name: objet_alt
+        label: Objet alt
+        widget: string
+      - name: seuil_sur
+        label: Seuil sur
+        widget: string
+      - name: sur100
+        label: Sur100
+        widget: string
+      - name: seuil_texte
+        label: Seuil texte
+        widget: text
+      - name: s2_sur
+        label: S2 sur
+        widget: string
+      - name: s2_titre
+        label: S2 titre
+        widget: string
+      - name: signes
+        label: Signes
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s3_sur
+        label: S3 sur
+        widget: string
+      - name: s3_titre
+        label: S3 titre
+        widget: string
+      - name: duree
+        label: Duree
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: citation
+        label: Citation
+        widget: string
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: string
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: s1_a
+        label: S1 a
+        widget: text
+      - name: s1_b
+        label: S1 b
+        widget: text
+      - name: objet
+        label: Objet
+        widget: string
+      - name: objet_alt
+        label: Objet alt
+        widget: string
+      - name: seuil_sur
+        label: Seuil sur
+        widget: string
+      - name: sur100
+        label: Sur100
+        widget: string
+      - name: seuil_texte
+        label: Seuil texte
+        widget: text
+      - name: s2_sur
+        label: S2 sur
+        widget: string
+      - name: s2_titre
+        label: S2 titre
+        widget: string
+      - name: signes
+        label: Signes
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s3_sur
+        label: S3 sur
+        widget: string
+      - name: s3_titre
+        label: S3 titre
+        widget: string
+      - name: duree
+        label: Duree
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: citation
+        label: Citation
+        widget: string
+  - name: cinq_sens
+    label: Pièce 02 · Les cinq sens
+    file: src/content/cinq_sens.json
+    fields:
+    - name: fr
+      label: Français
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: string
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: s1_texte
+        label: S1 texte
+        widget: text
+      - name: sens
+        label: Sens
+        widget: list
+        fields:
+        - name: nom
+          label: Nom
+          widget: string
+        - name: mot
+          label: Mot
+          widget: string
+        - name: phrase
+          label: Phrase
+          widget: string
+        - name: texte
+          label: Texte
+          widget: text
+        - name: criteres
+          label: Criteres
+          widget: list
+          field:
+            name: element
+            label: Élément
+            widget: list
+            field:
+              name: texte
+              label: Texte
+              widget: string
+        - name: mesure
+          label: Mesure
+          widget: string
+        - name: bornes
+          label: Bornes
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: text
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: string
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: s1_texte
+        label: S1 texte
+        widget: text
+      - name: sens
+        label: Sens
+        widget: list
+        fields:
+        - name: nom
+          label: Nom
+          widget: string
+        - name: mot
+          label: Mot
+          widget: string
+        - name: phrase
+          label: Phrase
+          widget: string
+        - name: texte
+          label: Texte
+          widget: text
+        - name: criteres
+          label: Criteres
+          widget: list
+          field:
+            name: element
+            label: Élément
+            widget: list
+            field:
+              name: texte
+              label: Texte
+              widget: string
+        - name: mesure
+          label: Mesure
+          widget: string
+        - name: bornes
+          label: Bornes
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+  - name: methode
+    label: Pièce 03 · La Méthode
+    file: src/content/methode.json
+    fields:
+    - name: fr
+      label: Français
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: text
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: cadran
+        label: Cadran
+        widget: string
+      - name: note_horaires
+        label: Note horaires
+        widget: string
+      - name: heures
+        label: Heures
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s2_sur
+        label: S2 sur
+        widget: string
+      - name: s2_titre
+        label: S2 titre
+        widget: string
+      - name: etapes
+        label: Etapes
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s3_titre
+        label: S3 titre
+        widget: string
+      - name: s3_bouton
+        label: S3 bouton
+        widget: string
+      - name: s3_sur
+        label: S3 sur
+        widget: string
+      - name: s3_h
+        label: S3 h
+        widget: string
+      - name: livrables
+        label: Livrables
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: text
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: cadran
+        label: Cadran
+        widget: string
+      - name: note_horaires
+        label: Note horaires
+        widget: string
+      - name: heures
+        label: Heures
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s2_sur
+        label: S2 sur
+        widget: string
+      - name: s2_titre
+        label: S2 titre
+        widget: string
+      - name: etapes
+        label: Etapes
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s3_titre
+        label: S3 titre
+        widget: string
+      - name: s3_bouton
+        label: S3 bouton
+        widget: string
+      - name: s3_sur
+        label: S3 sur
+        widget: string
+      - name: s3_h
+        label: S3 h
+        widget: string
+      - name: livrables
+        label: Livrables
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+  - name: rapport
+    label: Pièce 04 · Le Rapport
+    file: src/content/rapport.json
+    fields:
+    - name: fr
+      label: Français
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: text
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: text
+      - name: doc_sur
+        label: Doc sur
+        widget: string
+      - name: maison
+        label: Maison
+        widget: string
+      - name: maison_sous
+        label: Maison sous
+        widget: string
+      - name: tampon
+        label: Tampon
+        widget: string
+      - name: ics_sur
+        label: Ics sur
+        widget: string
+      - name: ics_sous
+        label: Ics sous
+        widget: string
+      - name: synthese
+        label: Synthese
+        widget: text
+      - name: h_scores
+        label: H scores
+        widget: string
+      - name: note_seuil
+        label: Note seuil
+        widget: string
+      - name: dims
+        label: Dims
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: h_irritants
+        label: H irritants
+        widget: string
+      - name: cols_irritants
+        label: Cols irritants
+        widget: list
+        field:
+          name: texte
+          label: Texte
+          widget: string
+      - name: irritants
+        label: Irritants
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: h_route
+        label: H route
+        widget: string
+      - name: cols_route
+        label: Cols route
+        widget: list
+        field:
+          name: texte
+          label: Texte
+          widget: string
+      - name: route
+        label: Route
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: note
+        label: Note
+        widget: text
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: text
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: text
+      - name: doc_sur
+        label: Doc sur
+        widget: string
+      - name: maison
+        label: Maison
+        widget: string
+      - name: maison_sous
+        label: Maison sous
+        widget: string
+      - name: tampon
+        label: Tampon
+        widget: string
+      - name: ics_sur
+        label: Ics sur
+        widget: string
+      - name: ics_sous
+        label: Ics sous
+        widget: string
+      - name: synthese
+        label: Synthese
+        widget: text
+      - name: h_scores
+        label: H scores
+        widget: string
+      - name: note_seuil
+        label: Note seuil
+        widget: string
+      - name: dims
+        label: Dims
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: h_irritants
+        label: H irritants
+        widget: string
+      - name: cols_irritants
+        label: Cols irritants
+        widget: list
+        field:
+          name: texte
+          label: Texte
+          widget: string
+      - name: irritants
+        label: Irritants
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: h_route
+        label: H route
+        widget: string
+      - name: cols_route
+        label: Cols route
+        widget: list
+        field:
+          name: texte
+          label: Texte
+          widget: string
+      - name: route
+        label: Route
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: note
+        label: Note
+        widget: text
+  - name: charte
+    label: Pièce 05 · La Charte
+    file: src/content/charte.json
+    fields:
+    - name: fr
+      label: Français
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: text
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: text
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: interdits
+        label: Interdits
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s2_sur
+        label: S2 sur
+        widget: string
+      - name: s2_titre
+        label: S2 titre
+        widget: string
+      - name: s2_texte
+        label: S2 texte
+        widget: text
+      - name: s3_sur
+        label: S3 sur
+        widget: string
+      - name: engagement
+        label: Engagement
+        widget: text
+      - name: signature
+        label: Signature
+        widget: string
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: text
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: interdits
+        label: Interdits
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s2_sur
+        label: S2 sur
+        widget: string
+      - name: s2_titre
+        label: S2 titre
+        widget: string
+      - name: s2_texte
+        label: S2 texte
+        widget: text
+      - name: s3_sur
+        label: S3 sur
+        widget: string
+      - name: engagement
+        label: Engagement
+        widget: text
+      - name: signature
+        label: Signature
+        widget: string
+  - name: rendez_vous
+    label: Pièce 06 · Le Rendez-vous
+    file: src/content/rendez_vous.json
+    fields:
+    - name: fr
+      label: Français
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: text
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: temps
+        label: Temps
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s2_sur
+        label: S2 sur
+        widget: string
+      - name: questions
+        label: Questions
+        widget: list
+        field:
+          name: texte
+          label: Texte
+          widget: string
+      - name: f_sur
+        label: F sur
+        widget: string
+      - name: f_titre
+        label: F titre
+        widget: string
+      - name: f_nom
+        label: F nom
+        widget: string
+      - name: f_etab
+        label: F etab
+        widget: string
+      - name: f_email
+        label: F email
+        widget: string
+      - name: f_tel
+        label: F tel
+        widget: string
+      - name: f_msg
+        label: F msg
+        widget: string
+      - name: f_consent
+        label: F consent
+        widget: string
+      - name: f_envoyer
+        label: F envoyer
+        widget: string
+      - name: f_ok
+        label: F ok
+        widget: string
+      - name: f_err
+        label: F err
+        widget: string
+      - name: f_echec
+        label: F echec
+        widget: string
+      - name: cal_sur
+        label: Cal sur
+        widget: string
+      - name: reassure
+        label: Reassure
+        widget: string
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: text
+      - name: adieu
+        label: Adieu
+        widget: text
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: text
+      - name: s1_sur
+        label: S1 sur
+        widget: string
+      - name: s1_titre
+        label: S1 titre
+        widget: string
+      - name: temps
+        label: Temps
+        widget: list
+        field:
+          name: element
+          label: Élément
+          widget: list
+          field:
+            name: texte
+            label: Texte
+            widget: string
+      - name: s2_sur
+        label: S2 sur
+        widget: string
+      - name: questions
+        label: Questions
+        widget: list
+        field:
+          name: texte
+          label: Texte
+          widget: string
+      - name: f_sur
+        label: F sur
+        widget: string
+      - name: f_titre
+        label: F titre
+        widget: string
+      - name: f_nom
+        label: F nom
+        widget: string
+      - name: f_etab
+        label: F etab
+        widget: string
+      - name: f_email
+        label: F email
+        widget: string
+      - name: f_tel
+        label: F tel
+        widget: string
+      - name: f_msg
+        label: F msg
+        widget: string
+      - name: f_consent
+        label: F consent
+        widget: string
+      - name: f_envoyer
+        label: F envoyer
+        widget: string
+      - name: f_ok
+        label: F ok
+        widget: string
+      - name: f_err
+        label: F err
+        widget: string
+      - name: f_echec
+        label: F echec
+        widget: string
+      - name: cal_sur
+        label: Cal sur
+        widget: string
+      - name: reassure
+        label: Reassure
+        widget: string
+  - name: mentions
+    label: Mentions légales
+    file: src/content/mentions.json
+    fields:
+    - name: fr
+      label: Français
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: string
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: string
+      - name: html
+        label: Html
+        widget: text
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: string
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: string
+      - name: html
+        label: Html
+        widget: text
+  - name: confidentialite
+    label: Confidentialité
+    file: src/content/confidentialite.json
+    fields:
+    - name: fr
+      label: Français
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: string
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: string
+      - name: html
+        label: Html
+        widget: text
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: titre
+        label: Titre
+        widget: string
+      - name: description
+        label: Description
+        widget: string
+      - name: adieu
+        label: Adieu
+        widget: string
+      - name: h1
+        label: H1
+        widget: string
+      - name: chapeau
+        label: Chapeau
+        widget: string
+      - name: html
+        label: Html
+        widget: text
+  - name: reglages
+    label: Réglages (calendrier, email)
+    file: src/content/reglages.json
+    fields:
+    - name: cal_link
+      label: Cal link
+      widget: string
+    - name: cal_origin
+      label: Cal origin
+      widget: string
+    - name: email_nina
+      label: Email nina
+      widget: string

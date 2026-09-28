@@ -1,0 +1,31 @@
+---
+import Maison from '../../layouts/Maison.astro';
+import data from '../../content/cinq_sens.json';
+const { lang = 'fr' } = Astro.props; const c = data[lang];
+const teintes = ['#F6F1E8', '#F1F1EC', '#F3F2EA', '#F6EFE6', '#F4EEE6'];
+const echelles = [
+  { g: 'linear-gradient(90deg,#FFB46B,#FFD2A1 45%,#FFF1E0)', pos: '18%' }, { g: 'linear-gradient(90deg,#E4E6DE,#C9B99A 60%,#9E8963)', pos: '33%' },
+  { g: 'linear-gradient(90deg,#EFE9DC,#DCCFB4 30%,#EFE9DC 55%,#DCCFB4 80%,#EFE9DC)', pos: '6%' }, { g: 'linear-gradient(90deg,#F1E3CC,#E2C9A2 50%,#F1E3CC)', pos: '2%' }, { fils: true }];
+---
+<Maison lang={lang} titre={c.titre} piece="02" fond="var(--lin)" description={c.description} adieu={c.adieu}>
+  <Fragment slot="seuil"><h1>{c.h1}</h1><p>{c.chapeau}</p></Fragment>
+  <section class="salle"><div class="wrap g12"><p class="num rv" style="grid-column:1/4" data-n="V" aria-hidden="true"></p>
+    <div style="grid-column:4/13"><span class="eyebrow rv">{c.s1_sur}</span><h2 class="titre-salle" data-mots>{c.s1_titre}</h2><p class="lead rv" style="margin-top:2rem">{c.s1_texte}</p></div></div></section>
+  <section class="galerie" aria-label={c.titre}><div class="collant">
+    <div class="piste">
+      {c.sens.map((s, i) => (
+        <article class="pan pan-typo" style={`background:${teintes[i]}`}>
+          <div class="mot" aria-hidden="true">{s.mot}</div>
+          <div style={`--t:${teintes[i]}`}>
+            <p class="piece" style="margin:0">{String(i + 1).padStart(2, '0')} / 05</p>
+            <h2>{s.nom}</h2><p class="phrase">{s.phrase}</p><p class="petit">{s.texte}</p>
+            <ul>{s.criteres.map(([a, b]) => <li><b>{a}</b><span>{b}</span></li>)}</ul>
+            <div class="mesure"><span class="eyebrow" style="margin:0">{s.mesure}</span>
+              {echelles[i].fils ? <div class="fils" aria-hidden="true">{Array.from({ length: 60 }).map(() => <i></i>)}</div> : <div class="echelle" style={`background:${echelles[i].g}`}><span class="repere" style={`left:${echelles[i].pos}`}></span></div>}
+              <div class="bornes">{s.bornes.map(b => <span>{b}</span>)}</div></div>
+          </div>
+        </article>))}
+    </div>
+    <div class="compteur" aria-hidden="true">{c.sens.map((s, i) => <i>{String(i + 1).padStart(2, '0')}</i>)}</div><div class="barre" aria-hidden="true"></div>
+  </div></section>
+</Maison>

@@ -1,120 +1,117 @@
 ---
 import '../styles/maison.css';
-import { ouvertes, suivante } from '../data/pieces.js';
-const { titre, description, piece, image, adieu } = Astro.props;
-const chemin = Astro.url.pathname.replace(/\.html$/, '');
-const next = suivante(chemin);
+import { t, plan, suivante, routes, fr } from '../i18n.js';
+const { lang = 'fr', titre, description, piece, image, adieu, fond = 'var(--sable)' } = Astro.props;
+const T = t(lang);
+const chemin = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+const cheminFr = lang === 'en' ? fr(chemin) : chemin;
+const cheminEn = routes[cheminFr] || '/en/label';
+const autre = lang === 'en' ? cheminFr : cheminEn;
+const pieces = plan(lang);
+const next = suivante(lang, lang === 'en' ? chemin : chemin);
+const accueil = lang === 'en' ? '/?lang=en' : '/';
+const pied = lang === 'en' ? [['/en/legal-notice', T.mentions], ['/en/privacy', T.confidentialite]] : [['/mentions-legales', T.mentions], ['/confidentialite', T.confidentialite]];
 ---
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{titre} · 5 Sens Collection</title>
 <meta name="description" content={description}>
 <link rel="canonical" href={new URL(chemin, Astro.site)}>
+<link rel="alternate" hreflang="fr" href={new URL(cheminFr, Astro.site)}>
+<link rel="alternate" hreflang="en" href={new URL(cheminEn, Astro.site)}>
 <meta property="og:title" content={`${titre} · 5 Sens Collection`}>
 <meta property="og:description" content={description}>
 <meta property="og:image" content={new URL('/assets/partage.jpg', Astro.site)}>
-<link rel="icon" href="/assets/favicon.png">
+<meta property="og:locale" content={lang === 'en' ? 'en_GB' : 'fr_FR'}>
+<link rel="icon" href="/assets/embleme/embleme-5-sens.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/favicon.png">
 <link rel="preload" href="/fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/PlusJakartaSans.woff2" as="font" type="font/woff2" crossorigin>
+{image && <link rel="preload" as="image" href={image.replace('.webp', '-sm.webp')} imagesrcset={`${image.replace('.webp', '-sm.webp')} 900w, ${image} 1800w`} imagesizes="100vw">}
 <meta name="theme-color" content="#F8F7F4">
 </head>
 <body>
-<a class="skip" href="#contenu">Aller au contenu</a>
+<a class="skip" href="#contenu">{T.contenu}</a>
 <header class="entete" id="entete">
   <div class="wrap">
-    <a class="marque" href="/"><img src="/assets/plaque.webp" width="404" height="410" alt=""><span><b>5 SENS COLLECTION</b><small>Label d'excellence sensorielle</small></span></a>
+    <a class="marque" href={accueil}><img src="/assets/embleme/embleme-5-sens.svg" width="42" height="42" alt=""><span><b>5 SENS COLLECTION</b><small>{T.marque}</small></span></a>
     <div class="actions">
-      <a class="btn btn-p" href="/rendez-vous">Réserver un échange</a>
-      <button class="plan-btn" id="plan-ouvrir" aria-expanded="false" aria-controls="plan"><i aria-hidden="true"></i>Plan de la maison</button>
+      <a class="langue" href={autre} hreflang={lang === 'en' ? 'fr' : 'en'} lang={lang === 'en' ? 'fr' : 'en'}>{lang === 'en' ? 'FR' : 'EN'}</a>
+      <a class="btn btn-p" href={lang === 'en' ? '/en/private-call' : '/rendez-vous'}>{T.reserver}</a>
+      <button class="plan-btn" id="plan-ouvrir" aria-expanded="false" aria-controls="plan"><i aria-hidden="true"></i>{T.plan}</button>
     </div>
   </div>
 </header>
-<div class="plan" id="plan" role="dialog" aria-modal="true" aria-label="Plan de la maison">
-  <div class="plan-img"><img id="plan-image" src={ouvertes[1].img.replace(".webp","-sm.webp")} alt="" loading="lazy"></div>
+<div class="plan" id="plan" role="dialog" aria-modal="true" aria-label={T.plan}>
+  <div class="plan-img plan-embleme"><img src="/assets/embleme/embleme-5-sens.svg" alt="" width="360" height="360"><p class="heure" id="plan-heure"></p></div>
   <div class="plan-corps">
-    <button class="plan-fermer" id="plan-fermer">Fermer</button>
-    <span class="eyebrow">Plan de la maison</span>
-    <p class="serif" style="font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.25;max-width:24ch">Chaque pièce se visite dans l'ordre, ou à votre guise.</p>
-    <ol>
-      {ouvertes.map(p => <li><a href={p.href} data-img={p.img} aria-current={p.href === chemin || (p.href === '/' && chemin === '') ? 'page' : undefined}><span>{p.n}</span><b>{p.titre}</b><em>{p.note}</em></a></li>)}
-    </ol>
-    <p class="plan-pied">Paris · Genève · Côte d'Azur · <a href="mailto:contact@5senscollection.com">contact@5senscollection.com</a></p>
+    <button class="plan-fermer" id="plan-fermer">{T.fermer}</button>
+    <span class="eyebrow">{T.plan}</span>
+    <p class="serif" style="font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.25;max-width:24ch">{T.plan_titre}</p>
+    <ol>{pieces.map(p => <li><a href={p.href} aria-current={p.href === chemin ? 'page' : undefined}><span>{p.n}</span><b>{p.titre}</b><em>{p.note}</em></a></li>)}</ol>
+    <p class="plan-pied">{T.lieux} · <a href="mailto:contact@5senscollection.com">contact@5senscollection.com</a></p>
   </div>
 </div>
 <main id="contenu">
-  <section class="seuil">
-    <figure class="seuil-img" id="seuil-img"><img src={image} srcset={`${image.replace(".webp","-sm.webp")} 900w, ${image} 1800w`} sizes="100vw" alt="" fetchpriority="high" data-vitesse="0.08"></figure>
-    <div class="cartel">
-      <p class="piece">Pièce {piece}</p>
-      <slot name="seuil" />
-    </div>
-    <span class="defiler" aria-hidden="true">Faire défiler</span>
+  <section class={image ? 'seuil' : 'seuil seuil-typo'} style={image ? undefined : `background:${fond}`}>
+    {image ? <figure class="seuil-img" id="seuil-img"><img src={image} srcset={`${image.replace('.webp', '-sm.webp')} 900w, ${image} 1800w`} sizes="100vw" alt="" fetchpriority="high" decoding="async" data-vitesse="0.08"></figure> : <p class="seuil-numero" aria-hidden="true" data-n={piece}></p>}
+    <div class="cartel"><p class="piece">{T.piece} {piece}</p><slot name="seuil" /></div>
+    <span class="defiler" aria-hidden="true">{T.defiler}</span>
   </section>
   <slot />
-  <a class="depart" href={next.href} id="depart">
-    <figure id="depart-img"><img src={next.img} srcset={`${next.img.replace(".webp","-sm.webp")} 900w, ${next.img} 1800w`} sizes="100vw" alt="" loading="lazy" data-vitesse="0.06"></figure>
-    <div>
-      <p class="adieu">{adieu}</p>
-      <span class="eyebrow">Pièce suivante · {next.n}</span>
-      <b>{next.titre}</b>
-      <span class="suite">Entrer</span>
-    </div>
+  <a class="depart depart-typo" href={next.href}>
+    <span class="depart-numero" aria-hidden="true" data-n={next.n}></span>
+    <div><p class="adieu">{adieu}</p><span class="eyebrow">{T.suivante} · {next.n}</span><b>{next.titre}</b><span class="suite">{T.entrer}</span></div>
   </a>
 </main>
 <footer class="pied">
-  <img src="/assets/plaque.webp" width="404" height="410" alt="">
+  <img src="/assets/embleme/embleme-5-sens.svg" width="56" height="56" alt="">
   <b>5 SENS COLLECTION</b>
-  <nav aria-label="Pied de page">{ouvertes.map(p => <a href={p.href}>{p.titre}</a>)}</nav>
-  <p>Paris · Genève · Côte d'Azur · contact@5senscollection.com · <span class="heure" id="heure"></span></p>
+  <nav aria-label={T.plan}>{pieces.map(p => <a href={p.href}>{p.titre}</a>)}</nav>
+  <p>{T.lieux} · contact@5senscollection.com · <span class="heure" id="heure"></span></p>
+  <p>{pied.map(([h, l], i) => <>{i ? ' · ' : ''}<a href={h}>{l}</a></>)}</p>
 </footer>
+<script is:inline define:vars={{ heures: T.heures, locale: lang === 'en' ? 'en-GB' : 'fr-FR' }}>window.__heures = heures; window.__locale = locale;</script>
 <script>
   const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // En-tête qui se pose au défilement
   const ent = document.getElementById('entete');
-  // Le plan de la maison
-  const plan = document.getElementById('plan'), ouvrir = document.getElementById('plan-ouvrir'), fermer = document.getElementById('plan-fermer'), pimg = document.getElementById('plan-image');
+  const plan = document.getElementById('plan'), ouvrir = document.getElementById('plan-ouvrir'), fermer = document.getElementById('plan-fermer');
   const toggle = (o) => { plan.classList.toggle('ouvert', o); ouvrir.setAttribute('aria-expanded', String(o)); document.body.style.overflow = o ? 'hidden' : ''; (o ? fermer : ouvrir).focus(); };
   ouvrir.addEventListener('click', () => toggle(true)); fermer.addEventListener('click', () => toggle(false));
   addEventListener('keydown', e => { if (e.key === 'Escape' && plan.classList.contains('ouvert')) toggle(false); });
-  plan.querySelectorAll('li a').forEach(a => a.addEventListener('mouseenter', () => { pimg.src = a.dataset.img.replace('.webp', '-sm.webp'); }));
-  // Transition entre les pièces : l'image de la pièce suivante devient le seuil de la page d'après
-  document.getElementById('depart').addEventListener('click', () => { document.getElementById('seuil-img').style.viewTransitionName = 'none'; document.getElementById('depart-img').style.viewTransitionName = 'piece'; });
-  // Titres révélés mot à mot (texte complet conservé pour les lecteurs d'écran)
-  document.querySelectorAll('[data-mots]').forEach(el => { const t = el.textContent.trim(); el.setAttribute('aria-label', t);
-    el.innerHTML = t.split(/\s+/).map((w, i) => `<span class="m" aria-hidden="true" style="transition-delay:${Math.min(i * 22, 360)}ms">${w}</span>`).join(' '); el.classList.add('rv'); });
+  document.querySelectorAll('[data-mots]').forEach(el => { const t = el.textContent.trim();
+    el.innerHTML = `<span class="sr-only">${t}</span><span aria-hidden="true">` + t.split(/\s+/).map((w, i) => `<span class="m" style="transition-delay:${Math.min(i * 22, 360)}ms">${w}</span>`).join(' ') + '</span>'; el.classList.add('rv'); });
   const els = [...document.querySelectorAll('.rv,.revele,[data-mots]')];
   const para = [...document.querySelectorAll('[data-vitesse]')];
   const galerie = document.querySelector('.galerie'), piste = galerie?.querySelector('.piste'), barre = galerie?.querySelector('.barre'), comp = galerie ? [...galerie.querySelectorAll('.compteur i')] : [];
   const cadran = document.querySelector('.horloge'), hEl = cadran?.querySelector('.h'), mEl = cadran?.querySelector('.moment'), etapes = cadran ? [...cadran.querySelectorAll('.etape')] : [];
   const objet = document.querySelector('.objet'), objImg = objet?.querySelector('img');
-  const grand = () => innerWidth > 820;
   let dernier = -1;
   function frame(){
     const vh = innerHeight;
     ent.classList.toggle('pose', scrollY > 40);
     for (let i = els.length - 1; i >= 0; i--) { const el = els[i]; if (el.getBoundingClientRect().top < vh * 0.9) { el.classList.add('vu'); els.splice(i, 1); } }
     if (!reduit) for (const el of para) { const r = el.parentElement.getBoundingClientRect(); if (r.bottom < 0 || r.top > vh) continue; el.style.transform = `translate3d(0,${((r.top + r.height / 2) - vh / 2) * -parseFloat(el.dataset.vitesse)}px,0)`; }
-    if (galerie && grand()) { const r = galerie.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (r.height - vh)));
-      // chaque salon reste posé, puis glisse vers le suivant (jamais deux moitiés de salon à l'écran)
-      const q = p * 4, base = Math.min(3, Math.floor(q)), f = q - base, g = f < .6 ? 0 : (t => t * t * (3 - 2 * t))((f - .6) / .4), pos = Math.min(4, base + g);
+    if (galerie && innerWidth > 820) { const r = galerie.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (r.height - vh)));
+      const q = p * 4, base = Math.min(3, Math.floor(q)), f = q - base, g = f < .6 ? 0 : (x => x * x * (3 - 2 * x))((f - .6) / .4), pos = Math.min(4, base + g);
       piste.style.transform = `translate3d(${-pos * 100}vw,0,0)`; barre.style.width = (p * 100) + '%'; const k = Math.round(pos); comp.forEach((c, i) => c.classList.toggle('on', i === k)); }
-    if (cadran) { let a = 0; etapes.forEach((e, i) => { const r = e.getBoundingClientRect(); if (r.top < vh * 0.55) a = i; });
+    if (cadran) { let a = 0; etapes.forEach((e, i) => { if (e.getBoundingClientRect().top < vh * 0.55) a = i; });
       if (a !== dernier) { dernier = a; etapes.forEach((e, i) => e.classList.toggle('active', i === a)); hEl.textContent = etapes[a].dataset.h; mEl.textContent = etapes[a].dataset.m; } }
     if (objet && !reduit) { const r = objet.getBoundingClientRect(), p = Math.min(1, Math.max(0, -r.top / (r.height - vh))); objImg.style.transform = `perspective(1400px) rotateY(${-28 + p * 56}deg) rotateX(${6 - p * 6}deg) scale(${.92 + p * .12})`; }
   }
-  // Rien ne tourne en permanence : un seul calcul par image, et seulement quand on défile ou redimensionne
-  let enAttente = false;
-  const demande = () => { if (enAttente) return; enAttente = true; requestAnimationFrame(() => { enAttente = false; frame(); }); };
+  let attente = false;
+  const demande = () => { if (attente) return; attente = true; requestAnimationFrame(() => { attente = false; frame(); }); };
   addEventListener('scroll', demande, { passive: true }); addEventListener('resize', demande); frame(); setTimeout(frame, 300);
   // La lumière suit l'heure de la visite (?lumiere=aube|jour|doree|nuit pour prévisualiser)
-  const noms = { aube: "l'aube", jour: 'le plein jour', doree: "l'heure dorée", nuit: 'la nuit' };
-  const forcee = new URLSearchParams(location.search).get('lumiere');
+  const noms = window.__heures, forcee = new URLSearchParams(location.search).get('lumiere');
   const heure = () => { const d = new Date(), h = d.getHours() + d.getMinutes() / 60;
     const ph = noms[forcee] ? forcee : (h >= 5 && h < 9 ? 'aube' : h < 17 && h >= 9 ? 'jour' : h >= 17 && h < 21 ? 'doree' : 'nuit');
     document.documentElement.dataset.lumiere = ph;
-    const el = document.getElementById('heure'); if (el) el.textContent = d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + ' · ' + noms[ph]; };
+    const txt = d.toLocaleTimeString(window.__locale, { hour: '2-digit', minute: '2-digit' }) + ' · ' + noms[ph];
+    ['heure', 'plan-heure'].forEach(id => { const el = document.getElementById(id); if (el) el.textContent = txt; }); };
   heure(); setInterval(heure, 60000);
 </script>
 </body>

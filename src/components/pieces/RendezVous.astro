@@ -1,0 +1,55 @@
+---
+import Maison from '../../layouts/Maison.astro';
+import data from '../../content/rendez_vous.json';
+import reglages from '../../content/reglages.json';
+const { lang = 'fr' } = Astro.props; const c = data[lang];
+---
+<Maison lang={lang} titre={c.titre} piece="06" image="/assets/nina-portrait.webp" description={c.description} adieu={c.adieu}>
+  <Fragment slot="seuil"><h1>{c.h1}</h1><p>{c.chapeau}</p></Fragment>
+  <section class="salle"><div class="wrap g12">
+    <div style="grid-column:1/7"><span class="eyebrow rv">{c.s1_sur}</span><h2 class="titre-salle" data-mots>{c.s1_titre}</h2>
+      <ol class="liste-num" style="margin-top:3rem">{c.temps.map(([t, d]) => <li class="rv" style="grid-template-columns:minmax(0,2fr) minmax(0,5fr)"><span class="n n-texte" style="font-size:2rem">{t}</span><p>{d}</p></li>)}</ol>
+      <span class="eyebrow rv" style="margin-top:4rem">{c.s2_sur}</span>
+      <ul class="liste-num" style="list-style:none">{c.questions.map(q => <li class="rv" style="grid-template-columns:1fr"><b>{q}</b></li>)}</ul></div>
+    <div style="grid-column:8/13">
+      <form class="demande rv" id="demande" novalidate data-ok={c.f_ok} data-err={c.f_err} data-echec={c.f_echec} data-lang={lang}>
+        <span class="eyebrow">{c.f_sur}</span><p class="serif" style="font-size:1.6rem;line-height:1.2;margin-bottom:1.6rem">{c.f_titre}</p>
+        <label>{c.f_nom}<input name="nom" autocomplete="name" required></label>
+        <label>{c.f_etab}<input name="etablissement" autocomplete="organization" required></label>
+        <label>{c.f_email}<input name="email" type="email" autocomplete="email" required></label>
+        <label>{c.f_tel}<input name="telephone" type="tel" autocomplete="tel"></label>
+        <label>{c.f_msg}<textarea name="message" rows="3"></textarea></label>
+        <input class="piege" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="case"><input type="checkbox" name="consent" required> <span>{c.f_consent}</span></label>
+        <button class="btn btn-p" type="submit">{c.f_envoyer}</button>
+        <p class="retour" role="status" aria-live="polite"></p>
+        <p class="eyebrow" style="margin-top:1.4rem">{c.reassure}</p>
+      </form>
+    </div>
+  </div></section>
+  {reglages.cal_link && <section class="salle lin" id="calendrier"><div class="wrap"><span class="eyebrow rv">{c.cal_sur}</span><div id="cal" data-link={reglages.cal_link} data-origin={reglages.cal_origin} style="min-height:620px;margin-top:2rem"></div></div></section>}
+</Maison>
+<script>
+  const f = document.getElementById('demande');
+  f?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const out = f.querySelector('.retour'), btn = f.querySelector('button');
+    if (!f.checkValidity()) { out.textContent = f.dataset.err; f.reportValidity(); return; }
+    btn.disabled = true;
+    const donnees = Object.fromEntries(new FormData(f)); donnees.langue = f.dataset.lang;
+    try {
+      const r = await fetch('/api/demande', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(donnees) });
+      if (!r.ok) throw new Error(String(r.status));
+      f.classList.add('envoye'); out.textContent = f.dataset.ok;
+    } catch (err) { out.innerHTML = f.dataset.echec.replace('contact@5senscollection.com', '<a href="mailto:contact@5senscollection.com">contact@5senscollection.com</a>'); btn.disabled = false; }
+  });
+  // Calendrier Cal.com (chargé seulement si le lien est renseigné dans les réglages)
+  const cal = document.getElementById('cal');
+  if (cal) {
+    const origin = cal.dataset.origin || 'https://cal.com', app = origin.replace('https://', 'https://app.');
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, app + '/embed/embed.js', 'init');
+    window.Cal('init', 'rdv', { origin });
+    window.Cal.ns.rdv('ui', { theme: 'light', hideEventTypeDetails: true, layout: 'month_view', cssVarsPerTheme: { light: { 'cal-brand': '#7A6544' } } });
+    window.Cal.ns.rdv('inline', { elementOrSelector: '#cal', calLink: cal.dataset.link, config: { layout: 'month_view', theme: 'light' } });
+  }
+</script>

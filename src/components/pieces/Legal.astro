@@ -1,0 +1,11 @@
+---
+import Maison from '../../layouts/Maison.astro';
+import mentions from '../../content/mentions.json';
+import confid from '../../content/confidentialite.json';
+const { lang = 'fr', page = 'mentions' } = Astro.props; const c = (page === 'mentions' ? mentions : confid)[lang];
+const html = c.html.replaceAll('<h3>', '<h2>').replaceAll('</h3>', '</h2>');
+---
+<Maison lang={lang} titre={c.titre} piece="—" fond="var(--lin)" description={c.description} adieu={c.adieu}>
+  <Fragment slot="seuil"><h1>{c.h1}</h1><p>{c.chapeau}</p></Fragment>
+  <section class="salle"><div class="wrap"><div class="legal" set:html={html} /></div></section>
+</Maison>

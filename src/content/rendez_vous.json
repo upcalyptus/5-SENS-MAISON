@@ -1,0 +1,88 @@
+{
+ "fr": {
+  "titre": "Le Rendez-vous",
+  "description": "Réservez un échange confidentiel de trente minutes avec Nina Vienney, fondatrice de 5 Sens Collection, pour situer votre maison et évaluer son éligibilité.",
+  "adieu": "Merci de votre visite. La maison reste ouverte : revenez au seuil quand vous le souhaitez.",
+  "h1": "Trente minutes, en confidence.",
+  "chapeau": "Un échange avec Nina Vienney pour situer votre maison, répondre à vos questions et évaluer son éligibilité au Label.",
+  "s1_sur": "Comment se passent ces trente minutes",
+  "s1_titre": "Une conversation, pas une présentation.",
+  "temps": [
+   [
+    "0 – 5",
+    "Vous présentez votre maison, en quelques mots."
+   ],
+   [
+    "5 – 20",
+    "Nina vous pose les questions qu’elle poserait pendant l’immersion."
+   ],
+   [
+    "20 – 30",
+    "Elle vous dit franchement si l’audit a du sens pour vous, et sous quelle forme."
+   ]
+  ],
+  "s2_sur": "Pour préparer l’échange",
+  "questions": [
+   "Que souhaitez-vous que vos hôtes retiennent de votre maison ?",
+   "Qu’avez-vous cessé de remarquer ?",
+   "Que vous disent vos hôtes sans que ce soit écrit dans leurs avis ?"
+  ],
+  "f_sur": "Votre demande",
+  "f_titre": "Quelques mots pour préparer notre échange.",
+  "f_nom": "Nom et prénom",
+  "f_etab": "Établissement",
+  "f_email": "Email professionnel",
+  "f_tel": "Téléphone (facultatif)",
+  "f_msg": "Ce que vous souhaitez aborder (facultatif)",
+  "f_consent": "J’accepte que ces informations servent à me recontacter au sujet de ma demande.",
+  "f_envoyer": "Envoyer ma demande",
+  "f_ok": "Merci. Nina vous répond personnellement sous 48 heures.",
+  "f_err": "Merci de renseigner votre nom, votre établissement et un email valide.",
+  "f_echec": "L’envoi n’a pas abouti. Écrivez directement à contact@5senscollection.com.",
+  "cal_sur": "Ou choisissez directement votre créneau",
+  "reassure": "Sans engagement · Strictement confidentiel"
+ },
+ "en": {
+  "titre": "The Private Call",
+  "description": "Arrange a confidential thirty-minute call with Nina Vienney, founder of 5 Sens Collection, to understand where your house stands and whether it is eligible.",
+  "adieu": "Thank you for your visit. The house remains open: return to the threshold whenever you wish.",
+  "h1": "Thirty minutes, in confidence.",
+  "chapeau": "A conversation with Nina Vienney to understand your house, answer your questions and consider its eligibility for the Label.",
+  "s1_sur": "How these thirty minutes unfold",
+  "s1_titre": "A conversation, not a presentation.",
+  "temps": [
+   [
+    "0 – 5",
+    "You introduce your house, in a few words."
+   ],
+   [
+    "5 – 20",
+    "Nina asks the questions she would ask during the immersion."
+   ],
+   [
+    "20 – 30",
+    "She tells you candidly whether the audit makes sense for you, and in what form."
+   ]
+  ],
+  "s2_sur": "To prepare the conversation",
+  "questions": [
+   "What would you like your guests to remember of your house?",
+   "What have you stopped noticing?",
+   "What do your guests tell you that never appears in their reviews?"
+  ],
+  "f_sur": "Your request",
+  "f_titre": "A few words to prepare our conversation.",
+  "f_nom": "Full name",
+  "f_etab": "Property",
+  "f_email": "Business email",
+  "f_tel": "Phone (optional)",
+  "f_msg": "What you would like to discuss (optional)",
+  "f_consent": "I agree that these details may be used to contact me about my request.",
+  "f_envoyer": "Send my request",
+  "f_ok": "Thank you. Nina will reply personally within 48 hours.",
+  "f_err": "Please give your name, your property and a valid email address.",
+  "f_echec": "Your request could not be sent. Please write to contact@5senscollection.com.",
+  "cal_sur": "Or choose your time directly",
+  "reassure": "No commitment · Strictly confidential"
+ }
+}

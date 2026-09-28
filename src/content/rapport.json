@@ -1,0 +1,192 @@
+{
+ "fr": {
+  "titre": "Le Rapport",
+  "description": "Un exemple de rapport d’audit 5 Sens Collection, établi pour une maison fictive : l’indice ICS, les irritants classés par urgence et la feuille de route.",
+  "adieu": "Un rapport ne sert que s’il se lit en dix minutes et se déploie en quatre-vingt-dix jours. Voyons ce qui le rend incontestable.",
+  "h1": "Un rapport, page par page.",
+  "chapeau": "Voici à quoi ressemble ce que reçoit une maison à la fin de l’audit. La maison est fictive ; la méthode est la nôtre.",
+  "doc_sur": "Rapport d’audit d’immersion",
+  "maison": "La Maison des Oliviers",
+  "maison_sous": "Relais de charme, 14 clés · Immersion de 36 heures",
+  "tampon": "Exemple fictif",
+  "ics_sur": "Indice de Cohérence Sensorielle",
+  "ics_sous": "sur 100 · seuil du Label : 88",
+  "synthese": "Une maison sincère, dont la table et la lumière du jour tiennent déjà la promesse. Le silence de la nuit et la première impression l’empêchent encore d’atteindre le Label.",
+  "h_scores": "Le score, dimension par dimension",
+  "note_seuil": "Le trait vertical marque le seuil du Label, à 88.",
+  "dims": [
+   [
+    "La Vue",
+    90
+   ],
+   [
+    "L’Ouïe",
+    78
+   ],
+   [
+    "L’Odorat",
+    81
+   ],
+   [
+    "Le Goût",
+    88
+   ],
+   [
+    "Le Toucher",
+    83
+   ]
+  ],
+  "h_irritants": "Les irritants, par ordre d’urgence",
+  "cols_irritants": [
+   "N°",
+   "Irritant",
+   "Sens",
+   "Ce que ressent l’hôte"
+  ],
+  "irritants": [
+   [
+    "1",
+    "Ventilation audible la nuit (chambres 12 à 18)",
+    "L’Ouïe",
+    "Le silence se rompt vers 2 h : sommeil fragmenté"
+   ],
+   [
+    "2",
+    "Lumière de 4 000 K dans le couloir le soir",
+    "La Vue",
+    "Le passage à la chambre évoque un bureau, pas une maison"
+   ],
+   [
+    "3",
+    "Aucune odeur propre à la maison au seuil",
+    "L’Odorat",
+    "La première impression ne s’ancre pas"
+   ],
+   [
+    "4",
+    "Serviettes de densité inégale",
+    "Le Toucher",
+    "Le premier contact contredit la promesse de la chambre"
+   ]
+  ],
+  "h_route": "La feuille de route",
+  "cols_route": [
+   "Horizon",
+   "Action",
+   "Effet attendu"
+  ],
+  "route": [
+   [
+    "30 jours",
+    "Passer l’éclairage du couloir en 2 700 K après 19 h",
+    "La Vue · passage du jour au soir"
+   ],
+   [
+    "60 jours",
+    "Créer une signature olfactive diffusée au seuil et au lobby",
+    "L’Odorat · première impression"
+   ],
+   [
+    "90 jours",
+    "Traiter la ventilation des chambres 12 à 18",
+    "L’Ouïe · silence de nuit"
+   ]
+  ],
+  "note": "Extrait d’un exemple fictif. Un rapport réel détaille plus de cent critères, espace par espace, et s’accompagne du manuel opérationnel."
+ },
+ "en": {
+  "titre": "The Report",
+  "description": "A sample 5 Sens Collection audit report, prepared for a fictional house: the ICS index, irritants in order of urgency, and the roadmap.",
+  "adieu": "A report is only useful if it can be read in ten minutes and put into practice in ninety days. Let us see what makes it indisputable.",
+  "h1": "A report, page by page.",
+  "chapeau": "This is what a house receives at the end of the audit. The house is fictional; the method is ours.",
+  "doc_sur": "Immersion audit report",
+  "maison": "La Maison des Oliviers",
+  "maison_sous": "Country house, 14 keys · 36-hour immersion",
+  "tampon": "Fictional example",
+  "ics_sur": "Sensory Coherence Index",
+  "ics_sous": "out of 100 · Label threshold: 88",
+  "synthese": "A sincere house, whose table and daylight already keep the promise. Silence at night and the first impression still keep it from the Label.",
+  "h_scores": "The score, dimension by dimension",
+  "note_seuil": "The vertical line marks the Label threshold, at 88.",
+  "dims": [
+   [
+    "Sight",
+    90
+   ],
+   [
+    "Hearing",
+    78
+   ],
+   [
+    "Scent",
+    81
+   ],
+   [
+    "Taste",
+    88
+   ],
+   [
+    "Touch",
+    83
+   ]
+  ],
+  "h_irritants": "Irritants, in order of urgency",
+  "cols_irritants": [
+   "No.",
+   "Irritant",
+   "Sense",
+   "What the guest feels"
+  ],
+  "irritants": [
+   [
+    "1",
+    "Ventilation audible at night (rooms 12 to 18)",
+    "Hearing",
+    "Silence breaks around 2 am: fragmented sleep"
+   ],
+   [
+    "2",
+    "4,000 K light in the corridor in the evening",
+    "Sight",
+    "The walk to the room recalls an office, not a house"
+   ],
+   [
+    "3",
+    "No scent of the house at the threshold",
+    "Scent",
+    "The first impression does not take hold"
+   ],
+   [
+    "4",
+    "Towels of uneven density",
+    "Touch",
+    "The first touch contradicts the promise of the room"
+   ]
+  ],
+  "h_route": "The roadmap",
+  "cols_route": [
+   "Horizon",
+   "Action",
+   "Expected effect"
+  ],
+  "route": [
+   [
+    "30 days",
+    "Switch the corridor lighting to 2,700 K after 7 pm",
+    "Sight · the turn from day to evening"
+   ],
+   [
+    "60 days",
+    "Create a signature scent for the threshold and lobby",
+    "Scent · first impression"
+   ],
+   [
+    "90 days",
+    "Treat the ventilation in rooms 12 to 18",
+    "Hearing · silence at night"
+   ]
+  ],
+  "note": "Excerpt from a fictional example. A real report details more than a hundred criteria, space by space, and comes with the operating manual."
+ }
+}

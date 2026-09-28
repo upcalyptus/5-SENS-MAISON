@@ -1,0 +1,46 @@
+{
+ "fr": {
+  "marque": "Label d’excellence sensorielle",
+  "reserver": "Réserver un échange",
+  "plan": "Plan de la maison",
+  "fermer": "Fermer",
+  "plan_titre": "Chaque pièce se visite dans l’ordre, ou à votre guise.",
+  "piece": "Pièce",
+  "suivante": "Pièce suivante",
+  "entrer": "Entrer",
+  "defiler": "Faire défiler",
+  "contenu": "Aller au contenu",
+  "lieux": "Paris · Genève · Côte d’Azur",
+  "mentions": "Mentions légales",
+  "confidentialite": "Confidentialité",
+  "langue": "English",
+  "heures": {
+   "aube": "l’aube",
+   "jour": "le plein jour",
+   "doree": "l’heure dorée",
+   "nuit": "la nuit"
+  }
+ },
+ "en": {
+  "marque": "The label of sensory excellence",
+  "reserver": "Arrange a private call",
+  "plan": "The house plan",
+  "fermer": "Close",
+  "plan_titre": "Each room can be visited in order, or as you please.",
+  "piece": "Room",
+  "suivante": "Next room",
+  "entrer": "Enter",
+  "defiler": "Scroll",
+  "contenu": "Skip to content",
+  "lieux": "Paris · Geneva · French Riviera",
+  "mentions": "Legal notice",
+  "confidentialite": "Privacy",
+  "langue": "Français",
+  "heures": {
+   "aube": "dawn",
+   "jour": "full daylight",
+   "doree": "the golden hour",
+   "nuit": "night"
+  }
+ }
+}

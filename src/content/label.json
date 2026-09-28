@@ -1,0 +1,100 @@
+{
+ "fr": {
+  "titre": "Le Label",
+  "description": "Le Label 5 Sens Collection distingue les maisons dont l’expérience sensorielle atteint 88 sur 100. Ce qu’il signifie, comment il s’obtient, pourquoi il est rare.",
+  "adieu": "Une distinction ne vaut que par ce qu’elle exige. Voyons maintenant ce que nous évaluons.",
+  "h1": "Une reconnaissance qui se mérite.",
+  "chapeau": "Le Label distingue les maisons où ce que l’on ressent tient la promesse de ce que l’on voit.",
+  "s1_sur": "Ce qu’il distingue",
+  "s1_titre": "Pas la beauté d’un lieu. Sa cohérence.",
+  "s1_a": "Un établissement peut être magnifique sans être mémorable. Le Label reconnaît les maisons qui ont aligné la lumière, le silence, le parfum, la table et la matière sur une même intention.",
+  "s1_b": "Il repose sur l’Indice de Cohérence Sensorielle, l’ICS : une note sur 100, établie en immersion sur plus de cent critères. Le Label est attribué à partir de 88.",
+  "objet": "L’objet · laiton gravé, remis en main propre",
+  "objet_alt": "La plaque en laiton gravé du Label 5 Sens Collection",
+  "seuil_sur": "Le seuil",
+  "sur100": "sur 100",
+  "seuil_texte": "Sous ce seuil, l’audit ne s’arrête pas : il donne la feuille de route pour l’atteindre. Tous les établissements ne sont pas éligibles, et c’est ce qui donne sa valeur au Label.",
+  "s2_sur": "Ce que reçoit une maison labellisée",
+  "s2_titre": "Trois signes, remis en main propre.",
+  "signes": [
+   [
+    "La plaque",
+    "Le disque de laiton gravé, présenté dans son écrin, à apposer à l’entrée de la maison."
+   ],
+   [
+    "Le certificat",
+    "Signé par Nina Vienney : l’indice obtenu, la date d’attribution, la durée de validité."
+   ],
+   [
+    "Le kit de communication",
+    "L’emblème « Maison labellisée », un communiqué de presse, des visuels pour vos réseaux."
+   ]
+  ],
+  "s3_sur": "Dans la durée",
+  "s3_titre": "Un Label se garde comme il s’obtient.",
+  "duree": [
+   [
+    "Validité",
+    "[12 ou 24 mois, à confirmer.]"
+   ],
+   [
+    "Maintien",
+    "[Visite de contrôle annuelle, à confirmer.] L’exigence reste celle de la première nuit."
+   ],
+   [
+    "Retrait",
+    "Le Label peut être suspendu ou retiré si la maison ne satisfait plus aux critères, selon la procédure de la Charte."
+   ]
+  ],
+  "citation": "Ce n’est pas un label que l’on obtient. C’est une reconnaissance que l’on mérite."
+ },
+ "en": {
+  "titre": "The Label",
+  "description": "The 5 Sens Collection Label recognises houses whose sensory experience reaches 88 out of 100. What it means, how it is earned, why it is rare.",
+  "adieu": "A distinction is only worth what it demands. Let us look at what we assess.",
+  "h1": "A recognition that is earned.",
+  "chapeau": "The Label recognises houses where what one feels keeps the promise of what one sees.",
+  "s1_sur": "What it recognises",
+  "s1_titre": "Not the beauty of a place. Its coherence.",
+  "s1_a": "A property can be magnificent without being memorable. The Label recognises houses that have brought light, silence, scent, table and material into a single intention.",
+  "s1_b": "It rests on the Sensory Coherence Index, the ICS: a score out of 100, drawn from more than a hundred criteria observed in person. The Label is awarded from 88.",
+  "objet": "The object · engraved brass, presented by hand",
+  "objet_alt": "The engraved brass plaque of the 5 Sens Collection Label",
+  "seuil_sur": "The threshold",
+  "sur100": "out of 100",
+  "seuil_texte": "Below this threshold the audit does not stop: it sets out the path to reach it. Not every property is eligible, and that is what gives the Label its value.",
+  "s2_sur": "What a labelled house receives",
+  "s2_titre": "Three signs, presented by hand.",
+  "signes": [
+   [
+    "The plaque",
+    "The engraved brass disc, presented in its case, to be set at the entrance of the house."
+   ],
+   [
+    "The certificate",
+    "Signed by Nina Vienney: the score achieved, the date of award, the period of validity."
+   ],
+   [
+    "The communication kit",
+    "The “Labelled house” emblem, a press release, visuals for your channels."
+   ]
+  ],
+  "s3_sur": "Over time",
+  "s3_titre": "A Label is kept as it is earned.",
+  "duree": [
+   [
+    "Validity",
+    "[12 or 24 months, to be confirmed.]"
+   ],
+   [
+    "Renewal",
+    "[Annual review visit, to be confirmed.] The standard remains that of the first night."
+   ],
+   [
+    "Withdrawal",
+    "The Label may be suspended or withdrawn if the house no longer meets the criteria, under the procedure set out in the Charter."
+   ]
+  ],
+  "citation": "This is not a label one obtains. It is a recognition one earns."
+ }
+}

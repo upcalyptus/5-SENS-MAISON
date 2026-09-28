@@ -1,0 +1,22 @@
+---
+import Maison from '../../layouts/Maison.astro';
+import data from '../../content/methode.json';
+const { lang = 'fr' } = Astro.props; const c = data[lang];
+---
+<Maison lang={lang} titre={c.titre} piece="03" image="/assets/img-methode.webp" description={c.description} adieu={c.adieu}>
+  <Fragment slot="seuil"><h1>{c.h1}</h1><p>{c.chapeau}</p></Fragment>
+  <section class="salle" style="padding-bottom:0"><div class="wrap g12"><p class="num rv" style="grid-column:1/4" data-n="I" aria-hidden="true"></p><div style="grid-column:4/13"><span class="eyebrow rv">{c.s1_sur}</span><h2 class="titre-salle" data-mots>{c.s1_titre}</h2></div></div></section>
+  <section class="wrap horloge" aria-label={c.s1_sur}>
+    <div class="cadran"><span class="eyebrow">{c.cadran}</span><p class="h" aria-live="polite">{c.heures[0][0]}</p><p class="moment">{c.heures[0][2]}</p></div>
+    <div class="etapes">{c.heures.map(([h, t, m, d]) => <div class="etape" data-h={h} data-m={m}><b>{t}</b><p>{d}</p></div>)}<p class="petit" style="padding-top:2rem">{c.note_horaires}</p></div>
+  </section>
+  <section class="salle lin"><div class="wrap">
+    <div class="g12"><p class="num rv" style="grid-column:1/4" data-n="II" aria-hidden="true"></p><div style="grid-column:4/13"><span class="eyebrow rv">{c.s2_sur}</span><h2 class="titre-salle" data-mots>{c.s2_titre}</h2></div></div>
+    <ol class="liste-num" style="margin-top:4rem">{c.etapes.map(([t, d], i) => <li class="rv"><span class="n" aria-hidden="true" data-n={String(i + 1).padStart(2, '0')}></span><b>{t}</b><p>{d}</p></li>)}</ol>
+  </div></section>
+  <section class="salle"><div class="wrap g12" style="align-items:center">
+    <div style="grid-column:1/8"><p class="num rv" data-n="III" aria-hidden="true"></p><p class="rv" style="font:300 clamp(2rem,3.4vw,3rem)/1.1 var(--serif);max-width:18ch;margin-top:1.4rem">{c.s3_titre}</p><p class="rv" style="margin-top:2rem"><a class="btn btn-f" href={lang === 'en' ? '/en/report' : '/rapport'}>{c.s3_bouton}</a></p></div>
+    <div style="grid-column:9/13"><span class="eyebrow rv">{c.s3_sur}</span><h2 class="rv" style="font-size:clamp(2rem,3vw,2.8rem);line-height:1.08">{c.s3_h}</h2>
+      <ol class="liste-num" style="margin-top:2rem">{c.livrables.map(([t, d]) => <li class="rv" style="grid-template-columns:1fr"><b style="font-size:1.35rem">{t}</b><p>{d}</p></li>)}</ol></div>
+  </div></section>
+</Maison>

@@ -1,0 +1,76 @@
+{
+ "fr": {
+  "titre": "La Charte d’indépendance",
+  "description": "La Charte d’indépendance de 5 Sens Collection : ce que nous nous interdisons, pour que le Label ne puisse jamais s’acheter.",
+  "adieu": "Vous savez désormais ce que nous faisons, et ce que nous ne ferons jamais. Il reste à nous rencontrer.",
+  "h1": "Ce que l’on ne peut pas acheter.",
+  "chapeau": "Un label n’a de valeur que s’il est incontestable. Voici les engagements qui le rendent tel.",
+  "s1_sur": "Ce que nous ne ferons jamais",
+  "s1_titre": "Cinq interdits.",
+  "interdits": [
+   [
+    "Vendre un résultat",
+    "Une maison paie son évaluation, jamais son Label. Le résultat ne se négocie pas."
+   ],
+   [
+    "Prévenir les équipes",
+    "La date de l’immersion n’est connue que de la direction. Ce que nous observons est ce que vivent vos hôtes."
+   ],
+   [
+    "Évaluer des personnes",
+    "Nous évaluons une expérience, pas des collaborateurs. Aucun nom n’apparaît dans nos rapports."
+   ],
+   [
+    "Publier sans accord",
+    "Les résultats détaillés restent confidentiels. Seule l’attribution du Label peut être rendue publique, et l’indice avec votre accord."
+   ],
+   [
+    "Évaluer un proche",
+    "Un expert lié à une maison, par un contrat ou une relation personnelle, ne l’évalue pas."
+   ]
+  ],
+  "s2_sur": "Si vous contestez",
+  "s2_titre": "Un résultat se discute. Il ne s’efface pas.",
+  "s2_texte": "Une maison peut demander, dans les [30] jours suivant la restitution, un nouvel examen des critères qu’elle conteste, mené par un second expert qui n’a pas participé à l’immersion.",
+  "s3_sur": "L’engagement",
+  "engagement": "Chaque Label attribué pourra être défendu, critère par critère, devant la maison qui l’a reçu comme devant celle qui ne l’a pas obtenu.",
+  "signature": "Fondatrice · [date de signature]"
+ },
+ "en": {
+  "titre": "The Charter of Independence",
+  "description": "The 5 Sens Collection Charter of Independence: what we forbid ourselves, so that the Label can never be bought.",
+  "adieu": "You now know what we do, and what we will never do. All that remains is to meet.",
+  "h1": "What cannot be bought.",
+  "chapeau": "A label is only worth something if it is beyond dispute. These are the commitments that make it so.",
+  "s1_sur": "What we will never do",
+  "s1_titre": "Five things we refuse.",
+  "interdits": [
+   [
+    "Sell a result",
+    "A house pays for its assessment, never for its Label. The outcome is not negotiable."
+   ],
+   [
+    "Warn the teams",
+    "The date of the immersion is known only to management. What we observe is what your guests live."
+   ],
+   [
+    "Assess people",
+    "We assess an experience, not colleagues. No name appears in our reports."
+   ],
+   [
+    "Publish without consent",
+    "Detailed results remain confidential. Only the award of the Label may be made public, and the score with your consent."
+   ],
+   [
+    "Assess someone close",
+    "An expert linked to a house, by contract or personal relationship, does not assess it."
+   ]
+  ],
+  "s2_sur": "If you disagree",
+  "s2_titre": "A result can be discussed. It cannot be erased.",
+  "s2_texte": "A house may request, within [30] days of the debrief, a fresh review of the criteria it disputes, carried out by a second expert who took no part in the immersion.",
+  "s3_sur": "The commitment",
+  "engagement": "Every Label awarded can be defended, criterion by criterion, before the house that received it as before the one that did not.",
+  "signature": "Founder · [date of signature]"
+ }
+}

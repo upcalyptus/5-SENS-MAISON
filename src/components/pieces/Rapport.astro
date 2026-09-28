@@ -1,0 +1,25 @@
+---
+import Maison from '../../layouts/Maison.astro';
+import data from '../../content/rapport.json';
+const { lang = 'fr' } = Astro.props; const c = data[lang];
+---
+<Maison lang={lang} titre={c.titre} piece="04" fond="var(--sable)" description={c.description} adieu={c.adieu}>
+  <Fragment slot="seuil"><h1>{c.h1}</h1><p>{c.chapeau}</p></Fragment>
+  <section class="salle"><div class="wrap">
+    <article class="doc rv" aria-label={`${c.doc_sur} · ${c.tampon}`}>
+      <div class="entete-doc"><div><span class="eyebrow" style="margin-bottom:.6rem">{c.doc_sur}</span><p class="serif" style="font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.1">{c.maison}</p><p class="petit">{c.maison_sous}</p></div><span class="tampon">{c.tampon}</span></div>
+      <div class="g12" style="align-items:end">
+        <div style="grid-column:1/6"><span class="eyebrow">{c.ics_sur}</span><p style="font:260 clamp(6rem,12vw,9rem)/.85 var(--serif);letter-spacing:-.05em">84</p><p class="serif" style="color:var(--lt);font-size:1.2rem">{c.ics_sous}</p></div>
+        <div style="grid-column:7/13"><p class="lead" style="color:var(--encre)">{c.synthese}</p></div>
+      </div>
+      <h2 class="h-doc">{c.h_scores}</h2>
+      <div class="barres">{c.dims.map(([d, v]) => <div class="barre-l"><span>{d}</span><div class="rail" role="img" aria-label={`${d} : ${v} / 100`}><span style={`width:${v}%`}></span></div><b>{v}</b></div>)}</div>
+      <p class="petit" style="margin-top:.8rem">{c.note_seuil}</p>
+      <h2 class="h-doc">{c.h_irritants}</h2>
+      <div class="table-wrap"><table class="tableau"><thead><tr>{c.cols_irritants.map(h => <th scope="col">{h}</th>)}</tr></thead><tbody>{c.irritants.map(r => <tr>{r.map(x => <td>{x}</td>)}</tr>)}</tbody></table></div>
+      <h2 class="h-doc">{c.h_route}</h2>
+      <div class="table-wrap"><table class="tableau"><thead><tr>{c.cols_route.map(h => <th scope="col">{h}</th>)}</tr></thead><tbody>{c.route.map(r => <tr>{r.map(x => <td>{x}</td>)}</tr>)}</tbody></table></div>
+      <p class="petit" style="margin-top:2.4rem;border-top:1px solid var(--filet);padding-top:1.2rem">{c.note}</p>
+    </article>
+  </div></section>
+</Maison>

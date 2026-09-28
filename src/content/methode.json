@@ -1,0 +1,204 @@
+{
+ "fr": {
+  "titre": "La Méthode",
+  "description": "La méthode 5 Sens Collection : une immersion de 24 à 48 heures, heure par heure, six étapes et trois livrables prêts à déployer.",
+  "adieu": "Voyons maintenant ce que reçoit une maison à la fin de l’audit.",
+  "h1": "Quarante-huit heures, heure par heure.",
+  "chapeau": "Une immersion discrète, vécue comme un hôte l’aurait vécue. Deux heures seulement mobilisent vos équipes.",
+  "s1_sur": "Une immersion, telle qu’elle se vit",
+  "s1_titre": "Ce que Nina observe, du seuil au départ.",
+  "cadran": "L’heure de l’immersion",
+  "note_horaires": "Horaires donnés à titre d’exemple : chaque immersion suit le rythme réel de la maison.",
+  "heures": [
+   [
+    "15:00",
+    "L’arrivée",
+    "Les trente premières secondes",
+    "Le seuil, le premier regard, la première phrase, le premier parfum. Tout se joue avant la clé."
+   ],
+   [
+    "16:30",
+    "La chambre",
+    "La lumière d’après-midi",
+    "Le linge sous la main, la température du sol, le murmure de la ventilation que personne n’entend plus."
+   ],
+   [
+    "19:00",
+    "L’heure dorée",
+    "Le passage au soir",
+    "Quand le jour tombe, la lumière de la maison change-t-elle avec lui, ou reste-t-elle celle d’un bureau ?"
+   ],
+   [
+    "20:30",
+    "La table",
+    "Le rituel",
+    "La céramique, le rythme du service, le silence entre deux plats, ce que l’on retient d’une saveur."
+   ],
+   [
+    "23:30",
+    "La nuit",
+    "Le silence réel",
+    "Les bruits techniques, la porte d’à côté, l’obscurité véritable. Le sommeil est le premier luxe."
+   ],
+   [
+    "07:30",
+    "Le réveil",
+    "La lumière du matin",
+    "Le premier café, la douche, la matière des peignoirs, la façon dont la maison dit bonjour."
+   ],
+   [
+    "11:00",
+    "Le départ",
+    "Ce qui reste",
+    "Le dernier mot, le dernier geste. Ce que l’hôte racontera, ou non, en rentrant."
+   ]
+  ],
+  "s2_sur": "Six étapes",
+  "s2_titre": "Sans zone d’ombre.",
+  "etapes": [
+   [
+    "Immersion",
+    "24 à 48 heures, en toute discrétion, dans les conditions réelles d’un hôte."
+   ],
+   [
+    "Diagnostic sensoriel",
+    "Plus de cent critères : chambres, suites, lobby, spa, tables."
+   ],
+   [
+    "Indice ICS",
+    "Votre score sur 100, dimension par dimension, vos forces, vos priorités."
+   ],
+   [
+    "Manuel opérationnel",
+    "Quoi faire, pourquoi, et comment le déployer avec vos équipes."
+   ],
+   [
+    "Plan d’action",
+    "La feuille de route 30 / 60 / 90 jours."
+   ],
+   [
+    "Le Label",
+    "Attribué à partir de 88 sur 100."
+   ]
+  ],
+  "s3_titre": "Voyez un rapport, page par page.",
+  "s3_bouton": "Ouvrir l’exemple de rapport",
+  "s3_sur": "Ce que vous recevez",
+  "s3_h": "Trois livrables, prêts à déployer.",
+  "livrables": [
+   [
+    "L’indice ICS",
+    "Dimension par dimension, comparable dans le temps."
+   ],
+   [
+    "Le manuel opérationnel",
+    "Et le tableau des irritants, classés par urgence."
+   ],
+   [
+    "La feuille de route",
+    "30 / 60 / 90 jours : les gains immédiats, puis les chantiers de fond."
+   ]
+  ]
+ },
+ "en": {
+  "titre": "The Method",
+  "description": "The 5 Sens Collection method: a 24 to 48 hour immersion, hour by hour, six steps and three deliverables ready to put into practice.",
+  "adieu": "Now let us see what a house receives at the end of the audit.",
+  "h1": "Forty-eight hours, hour by hour.",
+  "chapeau": "A discreet immersion, lived exactly as a guest would live it. Only two hours ask anything of your teams.",
+  "s1_sur": "An immersion, as it is lived",
+  "s1_titre": "What Nina observes, from threshold to departure.",
+  "cadran": "The hour of the immersion",
+  "note_horaires": "Times are given as an example: every immersion follows the real rhythm of the house.",
+  "heures": [
+   [
+    "15:00",
+    "Arrival",
+    "The first thirty seconds",
+    "The threshold, the first glance, the first sentence, the first scent. Everything is decided before the key."
+   ],
+   [
+    "16:30",
+    "The bedroom",
+    "Afternoon light",
+    "The linen beneath the hand, the temperature of the floor, the hum of ventilation no one hears any more."
+   ],
+   [
+    "19:00",
+    "The golden hour",
+    "The turn to evening",
+    "As the day fades, does the light of the house change with it, or stay the light of an office?"
+   ],
+   [
+    "20:30",
+    "The table",
+    "The ritual",
+    "The ceramics, the rhythm of service, the silence between two courses, what stays of a flavour."
+   ],
+   [
+    "23:30",
+    "The night",
+    "True silence",
+    "Technical noise, the door next door, real darkness. Sleep is the first luxury."
+   ],
+   [
+    "07:30",
+    "Waking",
+    "Morning light",
+    "The first coffee, the shower, the feel of the robes, the way the house says good morning."
+   ],
+   [
+    "11:00",
+    "Departure",
+    "What remains",
+    "The last word, the last gesture. What the guest will, or will not, tell on returning home."
+   ]
+  ],
+  "s2_sur": "Six steps",
+  "s2_titre": "Nothing left in the shadows.",
+  "etapes": [
+   [
+    "Immersion",
+    "24 to 48 hours, with complete discretion, in the real conditions of a guest."
+   ],
+   [
+    "Sensory diagnosis",
+    "More than a hundred criteria: rooms, suites, lobby, spa, restaurants."
+   ],
+   [
+    "ICS index",
+    "Your score out of 100, dimension by dimension, your strengths, your priorities."
+   ],
+   [
+    "Operating manual",
+    "What to do, why it matters, and how to bring your teams with you."
+   ],
+   [
+    "Action plan",
+    "The 30 / 60 / 90 day roadmap."
+   ],
+   [
+    "The Label",
+    "Awarded from 88 out of 100."
+   ]
+  ],
+  "s3_titre": "See a report, page by page.",
+  "s3_bouton": "Open the sample report",
+  "s3_sur": "What you receive",
+  "s3_h": "Three deliverables, ready to put into practice.",
+  "livrables": [
+   [
+    "The ICS index",
+    "Dimension by dimension, comparable over time."
+   ],
+   [
+    "The operating manual",
+    "With a dashboard of irritants, in order of urgency."
+   ],
+   [
+    "The roadmap",
+    "30 / 60 / 90 days: immediate gains, then deeper work."
+   ]
+  ]
+ }
+}

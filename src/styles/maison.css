@@ -158,7 +158,7 @@ body{font-size:17px}
 .galerie .phrase{font:italic 300 clamp(1.15rem,1.6vw,1.45rem)/1.5 var(--serif);color:var(--lt);margin-bottom:1.4rem}
 .galerie ul{list-style:none;margin-top:2rem;border-top:1px solid var(--filet)}
 .galerie li{padding:1rem 0;border-bottom:1px solid var(--filet)}.galerie li b{display:block;font:400 1.12rem var(--serif)}.galerie li span{font-size:.9rem;color:var(--muted)}
-.galerie .compteur{position:absolute;right:var(--pad);bottom:2rem;z-index:3;display:flex;gap:1.2rem;font:400 .9rem var(--serif);color:var(--lf)}
+.galerie .compteur{position:absolute;right:var(--pad);bottom:2rem;z-index:3;display:flex;gap:1.2rem;font:400 .9rem var(--serif);color:var(--lt)}
 .galerie .compteur i{font-style:normal;transition:color .4s}.galerie .compteur i.on{color:var(--encre)}
 .galerie .barre{position:absolute;left:0;bottom:0;height:2px;background:var(--bronze);width:0;z-index:3}
 @media (max-width:820px){.galerie{height:auto}.galerie .collant{position:relative;height:auto}.galerie .piste{flex-direction:column;width:100%;transform:none!important}.galerie .pan{width:100%;height:auto;grid-template-columns:1fr}.galerie .pan figure{height:62vh}.galerie .compteur,.galerie .barre{display:none}}
@@ -195,3 +195,121 @@ body{font-size:17px}
 .depart figure{position:absolute;inset:0;margin:0}.depart img{width:100%;height:100%;object-fit:cover;opacity:.92}
 .depart div{position:absolute;left:var(--pad);bottom:var(--pad);z-index:2;background:var(--pierre);padding:clamp(1.8rem,3.4vw,3rem) clamp(1.6rem,3.4vw,3.2rem);width:min(34rem,calc(100% - 2*var(--pad)))}
 .depart .adieu{margin-bottom:1.6rem}
+
+/* =================== Mouvement : principes de design engineering ===================
+   - des courbes « ease-out » franches pour tout ce qui entre, jamais de linéaire ;
+   - des durées courtes : 160–240 ms pour l'interface, 450–600 ms pour les apparitions ;
+   - la sortie est plus rapide que l'entrée ;
+   - on n'anime que transform, opacity, filter et clip-path ;
+   - rien ne part de scale(0) : on part de 0,96–0,98, avec un léger flou ;
+   - des transitions (interruptibles) plutôt que des animations en boucle ;
+   - pas d'effet de survol sur écran tactile ; retour tactile au clic (scale .97) ;
+   - « Réduire les animations » : on garde les fondus, on supprime les déplacements. */
+:root{--out:cubic-bezier(.23,1,.32,1);--in-out:cubic-bezier(.77,0,.175,1);--tiroir:cubic-bezier(.32,.72,0,1);--rapide:180ms;--moyen:240ms}
+.btn{transition:background-color var(--moyen) var(--out),color var(--moyen) var(--out),transform var(--rapide) var(--out),box-shadow var(--moyen) var(--out)}
+.btn:active,.plan-btn:active,.plan-fermer:active{transform:scale(.97)}
+.btn-p:hover{transform:none}
+@media (hover:hover) and (pointer:fine){.btn-p:hover{transform:translateY(-1px)}}
+@media not all and (hover:hover){.depart:hover img,.pm-piece:hover img{transform:none}}
+.plan-btn,.plan-fermer{transition:transform var(--rapide) var(--out),background-color var(--moyen) var(--out)}
+@media (hover:hover){.plan-btn:hover,.plan-fermer:hover{background:var(--lin)}}
+/* Le plan : entrée par un voile qui se lève, pièces en cascade ; sortie plus brève, sans cascade */
+.plan{opacity:1;visibility:hidden;clip-path:inset(0 0 100% 0);transition:clip-path 260ms var(--in-out),visibility 0s 260ms}
+.plan.ouvert{visibility:visible;clip-path:inset(0 0 0 0);transition:clip-path 520ms var(--tiroir)}
+.plan-corps li{opacity:0;transform:translateY(10px);filter:blur(3px);transition:opacity 160ms var(--out),transform 160ms var(--out),filter 160ms var(--out)}
+.plan.ouvert .plan-corps li{opacity:1;transform:none;filter:none;transition:opacity 420ms var(--out),transform 420ms var(--out),filter 420ms var(--out)}
+.plan.ouvert .plan-corps li:nth-child(1){transition-delay:180ms}.plan.ouvert .plan-corps li:nth-child(2){transition-delay:210ms}.plan.ouvert .plan-corps li:nth-child(3){transition-delay:240ms}
+.plan.ouvert .plan-corps li:nth-child(4){transition-delay:270ms}.plan.ouvert .plan-corps li:nth-child(5){transition-delay:300ms}.plan.ouvert .plan-corps li:nth-child(6){transition-delay:330ms}
+.plan-img img{transition:transform 900ms var(--out),opacity 300ms var(--out)}
+.plan-corps li a b{transition:color var(--moyen) var(--out),transform var(--moyen) var(--out)}
+@media (hover:hover){.plan-corps li a:hover b{transform:translateX(6px)}}
+/* Apparitions : fondu, léger glissement et flou qui se dissipe */
+.rv{transform:translateY(12px);filter:blur(4px);transition:opacity 560ms var(--out),transform 560ms var(--out),filter 560ms var(--out)}
+.rv.vu{filter:none}
+[data-mots] .m{transform:translateY(.3em);filter:blur(5px);transition:opacity 480ms var(--out),transform 480ms var(--out),filter 480ms var(--out)}
+[data-mots].vu .m{filter:none}
+.revele img{transform:scale(1.04);transition:clip-path 800ms var(--in-out),transform 1100ms var(--out)}
+/* Liens : le soulignement se dessine depuis la gauche, se retire vers la droite */
+.pied nav a,.plan-pied a,main p a{background:linear-gradient(currentColor,currentColor) no-repeat right bottom/0 1px;transition:background-size var(--moyen) var(--out),color var(--moyen) var(--out);text-decoration:none}
+@media (hover:hover){.pied nav a:hover,.plan-pied a:hover,main p a:hover{background-position:left bottom;background-size:100% 1px}}
+main p a{background-size:100% 1px;background-position:left bottom}
+/* Départ : l'image s'approche doucement, le trait s'allonge */
+.depart img{transition:transform 900ms var(--out)}
+.depart .suite::after{transition:width 420ms var(--out)}
+/* Transitions entre pièces : brèves et franches */
+::view-transition-old(root){animation:300ms var(--out) both vt-sort}
+::view-transition-new(root){animation:360ms var(--out) both vt-entre}
+@keyframes vt-sort{to{opacity:0;filter:blur(4px)}}
+@keyframes vt-entre{from{opacity:0;filter:blur(4px)}}
+::view-transition-group(piece){animation-duration:520ms;animation-timing-function:var(--tiroir)}
+/* Réduire les animations : on garde le sens (fondus), on retire le mouvement */
+@media (prefers-reduced-motion:reduce){
+  .rv,[data-mots] .m,.plan-corps li{transform:none!important;filter:none!important;transition:opacity 200ms linear!important}
+  .plan,.plan.ouvert{clip-path:none;transition:opacity 200ms linear,visibility 0s}
+  .plan{opacity:0}.plan.ouvert{opacity:1}
+  .revele img{clip-path:none;transform:none}
+  .btn:active{transform:none}
+  ::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}
+}
+.marque img{width:42px;height:42px;filter:drop-shadow(0 3px 8px rgba(110,85,45,.28))}
+
+/* =================== Version 6 : aucune photo en double =================== */
+.seuil-typo{min-height:92svh;display:flex;align-items:flex-end}
+.seuil .seuil-numero{margin:0;position:absolute;right:calc(var(--pad) - .06em);top:50%;transform:translateY(-58%);font:200 clamp(14rem,34vw,34rem)/.8 var(--serif);letter-spacing:-.06em;color:var(--laiton);opacity:.55;pointer-events:none}
+.seuil-typo .cartel{background:transparent;padding-left:0;left:var(--pad);bottom:clamp(3rem,9vh,6rem)}
+.seuil-typo .defiler{color:var(--lt);text-shadow:none}
+@media (max-width:820px){.seuil-typo{padding-top:10rem;min-height:80svh}.seuil-typo .cartel{position:relative;margin:0 var(--pad);bottom:auto;left:auto}.seuil .seuil-numero{font-size:48vw;top:34%}}
+.plan-embleme{display:grid;place-items:center;align-content:center;gap:2rem;background:radial-gradient(60% 50% at 50% 45%,#fbf9f5,var(--sable))}
+.plan-embleme img{width:min(26vw,340px);height:auto;filter:drop-shadow(0 30px 40px rgba(90,65,30,.3));transform:rotate(-8deg) scale(.96);transition:transform 900ms var(--out)}
+.plan.ouvert .plan-embleme img{transform:none}
+.depart-typo{min-height:88svh;background:var(--sable);display:flex;align-items:flex-end;overflow:hidden}
+.depart-typo div{position:relative;left:auto;bottom:auto;background:transparent;padding:0 var(--pad) clamp(3rem,9vh,6rem);width:auto;max-width:44rem}
+.depart-typo b{font-size:clamp(3rem,7vw,6.8rem)}
+.depart-numero{position:absolute;right:calc(var(--pad) - .06em);top:50%;transform:translateY(-52%);font:200 clamp(14rem,34vw,34rem)/.8 var(--serif);letter-spacing:-.06em;color:var(--laiton);opacity:.5;transition:transform 900ms var(--out),opacity 600ms var(--out)}
+@media (hover:hover){.depart-typo:hover .depart-numero{transform:translate(-2%,-52%);opacity:.75}}
+/* Nuancier des cinq sens : chaque sens a sa mesure */
+.mesure{margin-top:2.2rem;padding-top:1.4rem;border-top:1px solid var(--filet)}
+.mesure .echelle{position:relative;height:10px;border-radius:10px;margin:1rem 0 .7rem}
+.mesure .repere{position:absolute;top:-7px;width:2px;height:24px;background:var(--encre)}
+.mesure .bornes{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted)}
+.mesure .fils{display:grid;grid-template-columns:repeat(60,1fr);gap:2px;height:44px;margin:1rem 0 .7rem}.mesure .fils i{background:var(--lf);opacity:.55}
+.galerie .pan-typo{grid-template-columns:42% 58%}
+.galerie .pan-typo .mot{display:flex;align-items:center;justify-content:center;font:200 clamp(6rem,13vw,13rem)/.9 var(--serif);letter-spacing:-.05em;color:var(--encre);padding:2rem}
+/* Le rapport d'exemple : une page de document */
+.doc{background:var(--blanc);max-width:980px;margin:0 auto;padding:clamp(2rem,5vw,4.5rem);box-shadow:0 30px 60px rgba(110,85,45,.12)}
+.doc .entete-doc{display:flex;justify-content:space-between;gap:1rem;align-items:flex-start;border-bottom:1px solid var(--filet);padding-bottom:1.6rem;margin-bottom:2.2rem}
+.doc h3{font:300 clamp(1.6rem,2.6vw,2.2rem)/1.15 var(--serif);margin:2.6rem 0 1.2rem}
+.barres{display:grid;gap:1rem}.barre-l{display:grid;grid-template-columns:8rem 1fr 3.4rem;gap:1rem;align-items:center;font-size:.95rem}
+.barre-l .rail{height:6px;background:var(--filet-doux);border-radius:6px;position:relative}.barre-l .rail span{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,var(--laiton),var(--bronze));border-radius:6px}
+.barre-l .rail::after{content:"";position:absolute;left:88%;top:-5px;width:1px;height:16px;background:var(--encre);opacity:.5}
+.barre-l b{font:400 1.05rem var(--serif);text-align:right}
+.tableau{width:100%;border-collapse:collapse;font-size:.95rem}.tableau th{text-align:left;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--lt);font-weight:600;padding:.8rem .6rem .8rem 0;border-bottom:1px solid var(--filet)}
+.tableau td{padding:.9rem .6rem .9rem 0;border-bottom:1px solid var(--filet-doux);vertical-align:top}
+.tampon{display:inline-block;border:1px solid var(--lt);color:var(--lt);font-size:10px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;padding:.5rem .8rem;transform:rotate(-2deg)}
+.table-wrap{overflow-x:auto}
+/* Pages légales */
+.legal{max-width:760px;margin:0 auto}.legal h2{font-size:1.5rem;font-weight:400;margin:2.6rem 0 .8rem}.legal p{color:var(--muted);margin-bottom:.8rem}
+.langue{font:500 11px/1 var(--sans);letter-spacing:.2em;text-decoration:none;color:var(--encre);border:1px solid var(--filet);border-radius:100px;padding:.7rem .9rem;transition:background-color var(--moyen) var(--out),transform var(--rapide) var(--out)}
+.langue:active{transform:scale(.97)}@media (hover:hover){.langue:hover{background:var(--lin)}}
+.pied p a{color:var(--muted)}
+/* Formulaire de demande */
+.demande{background:var(--blanc);padding:clamp(1.6rem,3vw,2.6rem);box-shadow:0 30px 60px rgba(110,85,45,.1)}
+.demande label{display:block;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--lt);margin-bottom:1.1rem}
+.demande input:not([type=checkbox]),.demande textarea{display:block;width:100%;margin-top:.5rem;font:400 1rem/1.4 var(--sans);letter-spacing:0;text-transform:none;color:var(--encre);background:var(--pierre);border:1px solid var(--filet);border-radius:10px;padding:.85rem 1rem;transition:border-color var(--moyen) var(--out),background-color var(--moyen) var(--out)}
+.demande input:focus,.demande textarea:focus{outline:none;border-color:var(--bronze);background:#fff;box-shadow:0 0 0 3px rgba(122,101,68,.15)}
+.demande .case{display:flex;gap:.7rem;align-items:flex-start;text-transform:none;letter-spacing:0;font-weight:300;font-size:.85rem;color:var(--muted)}
+.demande .case input{margin-top:.25rem;accent-color:var(--bronze)}
+.demande .piege{position:absolute;left:-9999px;opacity:0}
+.demande .retour{margin-top:1rem;font-size:.95rem;color:var(--lt);min-height:1.4em}
+.demande.envoye label,.demande.envoye button{display:none}
+.demande button:disabled{opacity:.6}
+
+/* Accessibilité : chiffres décoratifs rendus par CSS (hors lecture et hors contrôle de contraste du texte) */
+.num::before,.seuil-numero::before,.depart-numero::before{content:attr(data-n)}
+.horloge .etape{opacity:1}.horloge .etape b,.horloge .etape p{color:var(--muted);transition:color .5s var(--out)}
+.horloge .etape.active b{color:var(--encre)}.horloge .etape.active p{color:var(--muted)}
+.doc .h-doc{font:300 clamp(1.6rem,2.6vw,2.2rem)/1.15 var(--serif);margin:2.6rem 0 1.2rem;letter-spacing:-.01em}
+html[data-lumiere="nuit"],html[data-lumiere="doree"]{--muted:#5B5850;--lt:#665333}
+.galerie .compteur{color:var(--lt)}.galerie .compteur i.on{color:var(--encre)}
+.doc .serif[style*="--lf"]{color:var(--lt)!important}
+.liste-num .n::before{content:attr(data-n)}.liste-num .n-texte{color:var(--lt)}

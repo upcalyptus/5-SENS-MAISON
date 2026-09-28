@@ -1,0 +1,20 @@
+---
+import Maison from '../../layouts/Maison.astro';
+import data from '../../content/charte.json';
+const { lang = 'fr' } = Astro.props; const c = data[lang];
+const av = (s) => s.replace(/\[([^\]]+)\]/g, '<span class="a-valider">[$1]</span>');
+---
+<Maison lang={lang} titre={c.titre} piece="05" fond="var(--lin)" description={c.description} adieu={c.adieu}>
+  <Fragment slot="seuil"><h1>{c.h1}</h1><p>{c.chapeau}</p></Fragment>
+  <section class="salle"><div class="wrap">
+    <div class="g12"><p class="num rv" style="grid-column:1/4" data-n="I" aria-hidden="true"></p><div style="grid-column:4/13"><span class="eyebrow rv">{c.s1_sur}</span><h2 class="titre-salle" data-mots>{c.s1_titre}</h2></div></div>
+    <ol class="liste-num" style="margin-top:4rem">{c.interdits.map(([a, b], i) => <li class="rv"><span class="n" aria-hidden="true" data-n={String(i + 1).padStart(2, '0')}></span><b>{a}</b><p>{b}</p></li>)}</ol>
+  </div></section>
+  <section class="salle lin"><div class="wrap g12"><p class="num rv" style="grid-column:1/4" data-n="II" aria-hidden="true"></p>
+    <div style="grid-column:4/9"><span class="eyebrow rv">{c.s2_sur}</span><h2 class="titre-salle" data-mots>{c.s2_titre}</h2></div>
+    <div style="grid-column:9/13;align-self:end"><p class="lead rv" set:html={av(c.s2_texte)} /></div></div></section>
+  <section class="salle"><div class="wrap" style="text-align:center;max-width:980px">
+    <span class="eyebrow rv">{c.s3_sur}</span><p class="manifeste" data-mots>{c.engagement}</p>
+    <p class="rv" style="margin-top:3rem"><span class="signature">Nina Vienney</span></p><p class="eyebrow rv" style="margin-top:1rem" set:html={av(c.signature)} />
+  </div></section>
+</Maison>

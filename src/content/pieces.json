@@ -1,0 +1,90 @@
+{
+ "fr": [
+  [
+   "00",
+   "/",
+   "Le Seuil",
+   "L’idée, en deux minutes"
+  ],
+  [
+   "01",
+   "/label",
+   "Le Label",
+   "Ce qu’il distingue, et pourquoi il est rare"
+  ],
+  [
+   "02",
+   "/cinq-sens",
+   "Les cinq sens",
+   "Le référentiel, sens par sens"
+  ],
+  [
+   "03",
+   "/methode",
+   "La Méthode",
+   "Quarante-huit heures, heure par heure"
+  ],
+  [
+   "04",
+   "/rapport",
+   "Le Rapport",
+   "Un exemple d’audit, page par page"
+  ],
+  [
+   "05",
+   "/independance",
+   "La Charte",
+   "Ce que l’on ne peut pas acheter"
+  ],
+  [
+   "06",
+   "/rendez-vous",
+   "Le Rendez-vous",
+   "Trente minutes avec Nina Vienney"
+  ]
+ ],
+ "en": [
+  [
+   "00",
+   "/?lang=en",
+   "The Threshold",
+   "The idea, in two minutes"
+  ],
+  [
+   "01",
+   "/en/label",
+   "The Label",
+   "What it recognises, and why it is rare"
+  ],
+  [
+   "02",
+   "/en/five-senses",
+   "The five senses",
+   "The framework, sense by sense"
+  ],
+  [
+   "03",
+   "/en/method",
+   "The Method",
+   "Forty-eight hours, hour by hour"
+  ],
+  [
+   "04",
+   "/en/report",
+   "The Report",
+   "A sample audit, page by page"
+  ],
+  [
+   "05",
+   "/en/independence",
+   "The Charter",
+   "What cannot be bought"
+  ],
+  [
+   "06",
+   "/en/private-call",
+   "The Private Call",
+   "Thirty minutes with Nina Vienney"
+  ]
+ ]
+}

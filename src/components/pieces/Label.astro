@@ -1,0 +1,29 @@
+---
+import Maison from '../../layouts/Maison.astro';
+import data from '../../content/label.json';
+const { lang = 'fr' } = Astro.props; const c = data[lang];
+const av = (s) => s.replace(/\[([^\]]+)\]/g, '<span class="a-valider">[$1]</span>');
+---
+<Maison lang={lang} titre={c.titre} piece="01" image="/assets/plaque-situation.webp" description={c.description} adieu={c.adieu}>
+  <Fragment slot="seuil"><h1>{c.h1}</h1><p>{c.chapeau}</p></Fragment>
+  <section class="salle"><div class="wrap g12">
+    <p class="num rv" style="grid-column:1/4" data-n="I" aria-hidden="true"></p>
+    <div style="grid-column:4/13"><span class="eyebrow rv">{c.s1_sur}</span><h2 class="titre-salle" data-mots>{c.s1_titre}</h2>
+      <div class="g12" style="margin-top:3rem"><p class="lead rv" style="grid-column:1/7;color:var(--encre)">{c.s1_a}</p><p class="petit rv" style="grid-column:8/13">{c.s1_b}</p></div></div>
+  </div></section>
+  <section class="objet" aria-label={c.objet_alt}><div class="collant"><img src="/assets/embleme/embleme-5-sens.svg" width="440" height="440" alt={c.objet_alt}><span class="ombre"></span><div class="note"><span class="eyebrow" style="margin:0">{c.objet}</span></div></div></section>
+  <section class="salle lin"><div class="wrap g12" style="align-items:end">
+    <div style="grid-column:1/8"><span class="eyebrow rv">{c.seuil_sur}</span><p class="rv" style="font:260 clamp(9rem,26vw,22rem)/.8 var(--serif);letter-spacing:-.06em">88</p></div>
+    <div style="grid-column:8/13;padding-bottom:2rem"><p class="serif rv" style="font-size:1.6rem;color:var(--lt)">{c.sur100}</p><p class="lead rv" style="margin-top:1.2rem">{c.seuil_texte}</p></div>
+  </div></section>
+  <section class="salle"><div class="wrap">
+    <div class="g12"><p class="num rv" style="grid-column:1/4" data-n="II" aria-hidden="true"></p><div style="grid-column:4/13"><span class="eyebrow rv">{c.s2_sur}</span><h2 class="titre-salle" data-mots>{c.s2_titre}</h2></div></div>
+    <ol class="liste-num" style="margin-top:4rem">{c.signes.map(([a, b], i) => <li class="rv"><span class="n" aria-hidden="true" data-n={String(i + 1).padStart(2, '0')}></span><b>{a}</b><p>{b}</p></li>)}</ol>
+  </div></section>
+  <section class="salle sable"><div class="wrap g12">
+    <p class="num rv" style="grid-column:1/4" data-n="III" aria-hidden="true"></p>
+    <div style="grid-column:4/13"><span class="eyebrow rv">{c.s3_sur}</span><h2 class="titre-salle" data-mots>{c.s3_titre}</h2>
+      <ol class="liste-num" style="margin-top:3rem">{c.duree.map(([a, b]) => <li class="rv" style="grid-template-columns:minmax(0,3fr) minmax(0,6fr)"><b>{a}</b><p set:html={av(b)} /></li>)}</ol></div>
+  </div></section>
+  <section class="salle"><div class="wrap" style="text-align:center"><p class="manifeste" data-mots>{c.citation}</p><p class="rv" style="margin-top:2.4rem"><span class="signature">Nina Vienney</span></p></div></section>
+</Maison>

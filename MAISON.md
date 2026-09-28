@@ -50,3 +50,38 @@ Version anglaise (/en/…), outil d'édition (/admin), accueil reconstruit dans 
 - Animations raccourcies (0,5 s au lieu de 0,8 à 2 s), sections moins hautes, images en deux tailles (téléphone et grand écran).
 - Mesure sur processeur ralenti ×4 : images de plus de 50 ms pendant le défilement, de 103–216 à 1–3 par page.
 - Ne pas réintroduire de `mix-blend-mode` sur un élément plein écran fixe.
+
+## Mouvement (version 5)
+
+Règles appliquées partout (`src/styles/maison.css`, fin du fichier) :
+- courbes « ease-out » franches (`--out`), courbe de tiroir pour le plan (`--tiroir`), jamais de linéaire ;
+- 160–240 ms pour l'interface, 450–600 ms pour les apparitions, sortie plus rapide que l'entrée ;
+- uniquement transform, opacity, filter et clip-path ; rien ne part de scale(0) ;
+- retour tactile au clic (scale .97), aucun effet de survol sur écran tactile ;
+- plan de la maison : voile qui se lève, pièces en cascade de 30 ms ; fermeture en 260 ms sans cascade ;
+- « Réduire les animations » : fondus conservés, déplacements supprimés.
+
+## Emblème vectoriel
+
+`public/assets/embleme/` : version laiton (écran), versions monochromes laiton-texte, blanc et noir (pour le graveur). Lettres vectorisées depuis Fraunces : nettes à toute taille, prêtes pour l'impression et la gravure.
+
+## Version 6 : une photo, une seule place
+
+- Chaque photo n'apparaît qu'une fois dans toute la maison : accueil (vidéo, salon, les cinq sens de la séquence 3D), Label (la plaque au mur), Méthode (les livrables), Rendez-vous (portrait de Nina).
+- Les pièces sans photo ont un seuil typographique (grand numéro de pièce en laiton) : Les cinq sens, Le Rapport, La Charte, pages légales.
+- Le départ de chaque pièce et le plan de la maison sont typographiques : plus aucune image répétée.
+- Les cinq sens deviennent le référentiel : pour chaque sens, trois critères et une mesure visuelle (température de couleur, niveau sonore de nuit, densité du linge…).
+- Nouvelle pièce 04 · Le Rapport : un exemple de rapport d'audit pour une maison fictive, clairement signalée comme telle.
+- Pages /mentions-legales et /confidentialite.
+- Accueil : les sections Méthode, Label, FAQ et formulaire sont désormais dans leurs pièces ; les boutons « Réserver » mènent au Rendez-vous ; polices hébergées sur le site.
+
+## Version 7 : bilingue, éditable, fonctionnel
+
+- **Textes hors du code** : chaque pièce lit son contenu dans `src/content/*.json` (français et anglais côte à côte). C'est là que l'outil d'édition écrit.
+- **Version anglaise** complète : /en/label, /en/five-senses, /en/method, /en/report, /en/independence, /en/private-call, /en/legal-notice, /en/privacy. Bouton FR / EN dans l'en-tête, balises hreflang, accueil bilingue (?lang=en) dont les liens suivent la langue.
+- **Outil d'édition** : /admin (Decap CMS, hébergé sur le site). Mise en place : voir `EDITION.md`.
+- **Formulaires qui fonctionnent** : `/api/demande` (pièce Rendez-vous) et `/api/prediagnostic` (simulateur de l'accueil) envoient les emails par Brevo : un à Nina, une confirmation au visiteur. Protection anti-robots. Clé à renseigner dans Vercel (`BREVO_API_KEY`).
+- **Calendrier** : renseigner `cal_link` dans les Réglages de l'outil d'édition, le calendrier Cal.com apparaît dans la pièce Rendez-vous.
+- **Aucune ressource tierce** hors Cal.com et Plausible : bibliothèques (GSAP, Lenis, Three.js) et polices hébergées sur le site, politique de sécurité resserrée, cache d'un an sur /assets, /fonts, /lib.
+- **Contrôle automatique d'accessibilité (axe)** sur les 18 pages FR et EN : aucune erreur, hors les mots de la phrase-manifeste de l'accueil pendant leur animation.
+- **Aucun lien interne cassé** (vérifié sur toutes les pages).
