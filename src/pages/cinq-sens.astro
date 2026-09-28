@@ -1,21 +1,11 @@
 ---
 import Maison from '../layouts/Maison.astro';
 const sens = [
-  { n:'01', nom:'La Vue', img:'/assets/img-vue.webp', teinte:'#F6F1E8', phrase:'Ce que l\'œil perçoit avant de le comprendre.',
-    texte:'Harmonie des sources lumineuses, mise en valeur des matières, perspectives dégagées, cohérence chromatique de jour comme de nuit.',
-    criteres:[['Scénographie lumineuse','Température de couleur, transitions du jour au soir.'],['Cadrages et perspectives','Ouvertures sur la nature, absence de pollution visuelle.'],["Détails d'orfèvrerie",'Patine des matières, netteté des finitions.']] },
-  { n:'02', nom:"L'Ouïe", img:'/assets/img-ouie.webp', teinte:'#F1F1EC', phrase:'Le luxe le plus rare est parfois le silence.',
-    texte:'Acoustique d\'exception, neutralité des bruits techniques, signatures musicales enveloppantes, préservation du silence.',
-    criteres:[['Le silence de nuit','Isolation phonique sous 20 dBA dans les chambres.'],['Ambiance feutrée','Aucun écho, matières absorbantes nobles.'],['Signature sonore','Une programmation qui suit le rythme du jour.']] },
-  { n:'03', nom:"L'Odorat", img:'/assets/img-odorat.webp', teinte:'#F3F2EA', phrase:'La mémoire la plus durable, et la moins pilotée.',
-    texte:'Une identité olfactive signature et mémorable, la pureté de l\'air, l\'absence de rémanences parasites.',
-    criteres:[['Sillage signature','Fragrance haute parfumerie diffusée à froid.'],["Fraîcheur de l'air",'Ventilation imperceptible, linge neutre.'],['Mémoire olfactive','Un ancrage dès le pas de la porte.']] },
-  { n:'04', nom:'Le Goût', img:'/assets/img-gout.webp', teinte:'#F6EFE6', phrase:'Une infusion servie à l\'arrivée dit plus qu\'un long discours.',
-    texte:'Gastronomie d\'auteur, rituels de table méticuleux, produits d\'exception du territoire, mixologie de précision.',
-    criteres:[["Rituels d'accueil",'Une infusion ou un élixir servi dès l\'arrivée.'],['Précision de table','Céramique d\'artisan, cristal taillé.'],['Identité culinaire','Une cuisine qui célèbre son territoire.']] },
-  { n:'05', nom:'Le Toucher', img:'/assets/img-toucher.webp', teinte:'#F4EEE6', phrase:'Ce que la main retient quand l\'œil a oublié.',
-    texte:'Noblesse des matières au contact direct, densité textile d\'exception, ergonomie des poignées et des surfaces minérales.',
-    criteres:[["Linge d'exception",'Densité, tombé et douceur au premier contact.'],['Matières vivantes','Pierre, chêne brossé, laiton chaud sous la paume.'],['Thermique de contact','La juste température des sols et des assises.']] }
+  { n:'01', nom:'La Vue', img:'/assets/img-vue.webp', t:'#F6F1E8', phrase:"Ce que l'œil perçoit avant de le comprendre.", texte:"Harmonie des sources lumineuses, mise en valeur des matières, perspectives dégagées, cohérence chromatique de jour comme de nuit.", c:[['Scénographie lumineuse','Température de couleur, transitions du jour au soir.'],['Cadrages et perspectives','Ouvertures sur la nature, absence de pollution visuelle.'],["Détails d'orfèvrerie",'Patine des matières, netteté des finitions.']] },
+  { n:'02', nom:"L'Ouïe", img:'/assets/img-ouie.webp', t:'#F1F1EC', phrase:'Le luxe le plus rare est parfois le silence.', texte:"Acoustique d'exception, neutralité des bruits techniques, signatures musicales enveloppantes, préservation du silence.", c:[['Le silence de nuit','Isolation phonique sous 20 dBA dans les chambres.'],['Ambiance feutrée','Aucun écho, matières absorbantes nobles.'],['Signature sonore','Une programmation qui suit le rythme du jour.']] },
+  { n:'03', nom:"L'Odorat", img:'/assets/img-odorat.webp', t:'#F3F2EA', phrase:'La mémoire la plus durable, et la moins pilotée.', texte:"Une identité olfactive signature et mémorable, la pureté de l'air, l'absence de rémanences parasites.", c:[['Sillage signature','Fragrance haute parfumerie diffusée à froid.'],["Fraîcheur de l'air",'Ventilation imperceptible, linge neutre.'],['Mémoire olfactive','Un ancrage dès le pas de la porte.']] },
+  { n:'04', nom:'Le Goût', img:'/assets/img-gout.webp', t:'#F6EFE6', phrase:"Une infusion servie à l'arrivée dit plus qu'un long discours.", texte:"Gastronomie d'auteur, rituels de table méticuleux, produits d'exception du territoire, mixologie de précision.", c:[["Rituels d'accueil","Une infusion ou un élixir servi dès l'arrivée."],['Précision de table',"Céramique d'artisan, cristal taillé."],['Identité culinaire','Une cuisine qui célèbre son territoire.']] },
+  { n:'05', nom:'Le Toucher', img:'/assets/img-toucher.webp', t:'#F4EEE6', phrase:"Ce que la main retient quand l'œil a oublié.", texte:"Noblesse des matières au contact direct, densité textile d'exception, ergonomie des poignées et des surfaces minérales.", c:[["Linge d'exception",'Densité, tombé et douceur au premier contact.'],['Matières vivantes','Pierre, chêne brossé, laiton chaud sous la paume.'],['Thermique de contact','La juste température des sols et des assises.']] }
 ];
 ---
 <Maison titre="Les cinq sens" piece="02" image="/assets/img-odorat.webp"
@@ -25,28 +15,29 @@ const sens = [
     <h1>Chaque sens est une promesse.</h1>
     <p>Nous mesurons si elle est tenue : cinq dimensions, plus de cent critères, relevés dans les conditions réelles d'un hôte.</p>
   </Fragment>
-  <nav class="salle" aria-label="Les cinq sens" style="padding:2.4rem 0">
-    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:.6rem 2.4rem;justify-content:center">
-      {sens.map(s => <a href={'#sens-' + s.n} class="eyebrow" style="margin:0;text-decoration:none">{s.n} · {s.nom}</a>)}
-    </div>
-  </nav>
-  {sens.map((s, i) => (
-    <section class="salle" id={'sens-' + s.n} style={`background:${s.teinte}`}>
-      <div class="wrap deux" style={i % 2 ? 'direction:rtl' : ''}>
-        <figure class="rv" style="direction:ltr"><img src={s.img} alt={s.nom} loading="lazy" width="1200" height="674" style="width:100%;aspect-ratio:4/3;object-fit:cover"></figure>
-        <div class="rv" style="direction:ltr">
-          <p class="piece" style="margin-bottom:.6rem">{s.n} / 05</p>
-          <h2 style="margin-bottom:.8rem">{s.nom}</h2>
-          <p class="serif" style="font-style:italic;font-size:1.3rem;color:var(--lt);margin-bottom:1.2rem">{s.phrase}</p>
-          <p class="muted">{s.texte}</p>
-          <ul class="filets" style="margin-top:1.8rem">
-            {s.criteres.map(([a, b]) => <li style="grid-template-columns:1fr 1.4fr"><b style="font-size:1.1rem">{a}</b><p>{b}</p></li>)}
-          </ul>
-        </div>
-      </div>
-    </section>
-  ))}
   <section class="salle">
-    <div class="wrap"><p class="manifeste rv">Les sens décident avant vous. Vos hôtes ressentent d'abord, puis cherchent une raison à ce qu'ils ont ressenti.</p></div>
+    <div class="wrap g12"><p class="num rv" style="grid-column:1/4">V</p>
+      <div style="grid-column:4/13"><span class="eyebrow rv">Cinq salons, une seule maison</span><h2 class="titre-salle" data-mots>Les sens décident avant vous.</h2>
+        <p class="lead rv" style="margin-top:2rem">Vos hôtes ressentent d'abord, puis cherchent une raison à ce qu'ils ont ressenti. Faites défiler : chaque sens est un salon, visité dans l'ordre où nous l'auditons.</p></div></div>
+  </section>
+  <section class="galerie" aria-label="Les cinq sens">
+    <div class="collant">
+      <div class="piste">
+        {sens.map(s => (
+          <article class="pan" id={'sens-' + s.n}>
+            <figure><img src={s.img} alt={s.nom} loading="lazy"></figure>
+            <div style={`--t:${s.t}`}>
+              <p class="piece" style="margin:0">{s.n} / 05</p>
+              <h2>{s.nom}</h2>
+              <p class="phrase">{s.phrase}</p>
+              <p class="petit">{s.texte}</p>
+              <ul>{s.c.map(([a, b]) => <li><b>{a}</b><span>{b}</span></li>)}</ul>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="compteur" aria-hidden="true">{sens.map(s => <i>{s.n}</i>)}</div>
+      <div class="barre" aria-hidden="true"></div>
+    </div>
   </section>
 </Maison>

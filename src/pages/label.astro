@@ -6,52 +6,55 @@ import Maison from '../layouts/Maison.astro';
   adieu="Une distinction ne vaut que par ce qu'elle exige. Voyons maintenant ce que nous évaluons.">
   <Fragment slot="seuil">
     <h1>Une reconnaissance qui se mérite.</h1>
-    <p>Le Label 5 Sens Collection distingue les maisons où ce que l'on ressent tient la promesse de ce que l'on voit.</p>
+    <p>Le Label distingue les maisons où ce que l'on ressent tient la promesse de ce que l'on voit.</p>
   </Fragment>
-
   <section class="salle">
-    <div class="wrap deux">
-      <div class="rv"><span class="eyebrow">Ce qu'il distingue</span><h2>Pas la beauté d'un lieu. Sa cohérence.</h2></div>
-      <div class="rv">
-        <p class="lead">Un établissement peut être magnifique sans être mémorable. Le Label reconnaît celles et ceux qui ont aligné la lumière, le silence, le parfum, la table et la matière sur une même intention, et qui la tiennent dans chaque espace, à chaque heure.</p>
-        <p class="muted" style="margin-top:1.2rem">Il repose sur l'Indice de Cohérence Sensorielle, l'ICS : une note sur 100, établie en immersion sur plus de cent critères. Le Label est attribué à partir de 88.</p>
+    <div class="wrap g12">
+      <p class="num rv" style="grid-column:1/4">I</p>
+      <div style="grid-column:4/13">
+        <span class="eyebrow rv">Ce qu'il distingue</span>
+        <h2 class="titre-salle" data-mots>Pas la beauté d'un lieu. Sa cohérence.</h2>
+        <div class="g12" style="margin-top:3rem">
+          <p class="lead rv" style="grid-column:1/7;color:var(--encre)">Un établissement peut être magnifique sans être mémorable. Le Label reconnaît les maisons qui ont aligné la lumière, le silence, le parfum, la table et la matière sur une même intention.</p>
+          <p class="petit rv" style="grid-column:8/13">Il repose sur l'Indice de Cohérence Sensorielle, l'ICS : une note sur 100, établie en immersion sur plus de cent critères. Le Label est attribué à partir de 88.</p>
+        </div>
       </div>
     </div>
   </section>
-
-  <section class="salle lin" aria-label="Le seuil de 88 sur 100">
-    <div class="wrap" style="text-align:center">
-      <span class="eyebrow rv">Le seuil</span>
-      <p class="rv" style="font:280 clamp(7rem,20vw,16rem)/.9 var(--serif);letter-spacing:-.04em">88</p>
-      <p class="rv serif" style="font-size:1.4rem;color:var(--lf);margin-top:.6rem">sur 100</p>
-      <p class="rv lead" style="margin:2rem auto 0">Sous ce seuil, l'audit ne s'arrête pas : il donne la feuille de route pour l'atteindre.</p>
+  <section class="objet" aria-label="La plaque 5 Sens Collection">
+    <div class="collant"><img src="/assets/plaque.webp" width="404" height="410" alt="La plaque en laiton gravé du Label 5 Sens Collection"><span class="ombre"></span>
+      <div class="note"><span class="eyebrow" style="margin:0">L'objet · laiton gravé, remis en main propre</span></div></div>
+  </section>
+  <section class="salle lin">
+    <div class="wrap g12" style="align-items:end">
+      <div style="grid-column:1/8"><span class="eyebrow rv">Le seuil</span>
+        <p class="rv" style="font:260 clamp(9rem,26vw,22rem)/.8 var(--serif);letter-spacing:-.06em">88</p></div>
+      <div style="grid-column:8/13;padding-bottom:2rem"><p class="serif rv" style="font-size:1.6rem;color:var(--lf)">sur 100</p>
+        <p class="lead rv" style="margin-top:1.2rem">Sous ce seuil, l'audit ne s'arrête pas : il donne la feuille de route pour l'atteindre. Tous les établissements ne sont pas éligibles, et c'est ce qui donne sa valeur au Label.</p></div>
     </div>
   </section>
-
   <section class="salle">
     <div class="wrap">
-      <span class="eyebrow rv">Ce que reçoit une maison labellisée</span>
-      <h2 class="rv">Trois signes, remis en main propre.</h2>
-      <ul class="filets">
-        <li class="rv"><b>La plaque</b><p>Le disque de laiton gravé, remis dans son écrin, à apposer à l'entrée de la maison.</p></li>
-        <li class="rv"><b>Le certificat</b><p>Signé par Nina Vienney, avec l'indice obtenu, la date d'attribution et la durée de validité.</p></li>
-        <li class="rv"><b>Le kit de communication</b><p>L'emblème « Maison labellisée », un communiqué de presse, des visuels pour vos réseaux.</p></li>
-      </ul>
+      <div class="g12"><p class="num rv" style="grid-column:1/4">II</p><div style="grid-column:4/13"><span class="eyebrow rv">Ce que reçoit une maison labellisée</span><h2 class="titre-salle" data-mots>Trois signes, remis en main propre.</h2></div></div>
+      <ol class="liste-num" style="margin-top:4rem">
+        <li class="rv"><span class="n">01</span><b>La plaque</b><p>Le disque de laiton gravé, présenté dans son écrin, à apposer à l'entrée de la maison.</p></li>
+        <li class="rv"><span class="n">02</span><b>Le certificat</b><p>Signé par Nina Vienney : l'indice obtenu, la date d'attribution, la durée de validité.</p></li>
+        <li class="rv"><span class="n">03</span><b>Le kit de communication</b><p>L'emblème « Maison labellisée », un communiqué de presse, des visuels pour vos réseaux.</p></li>
+      </ol>
     </div>
   </section>
-
   <section class="salle sable">
-    <div class="wrap deux">
-      <div class="rv"><span class="eyebrow">Dans la durée</span><h2>Un Label se garde comme il s'obtient.</h2></div>
-      <ul class="filets rv" style="margin-top:0">
-        <li><b>Validité</b><p><span class="a-valider">[Durée à confirmer : 12 ou 24 mois.]</span></p></li>
-        <li><b>Maintien</b><p><span class="a-valider">[Visite de contrôle annuelle ou nouvelle immersion, à confirmer.]</span> L'exigence reste celle de la première nuit.</p></li>
-        <li><b>Retrait</b><p>Le Label peut être suspendu ou retiré si la maison ne satisfait plus aux critères. La procédure est décrite dans la Charte.</p></li>
-      </ul>
+    <div class="wrap g12">
+      <p class="num rv" style="grid-column:1/4">III</p>
+      <div style="grid-column:4/13"><span class="eyebrow rv">Dans la durée</span><h2 class="titre-salle" data-mots>Un Label se garde comme il s'obtient.</h2>
+        <ol class="liste-num" style="margin-top:3rem">
+          <li class="rv" style="grid-template-columns:minmax(0,3fr) minmax(0,6fr)"><b>Validité</b><p><span class="a-valider">[12 ou 24 mois, à confirmer.]</span></p></li>
+          <li class="rv" style="grid-template-columns:minmax(0,3fr) minmax(0,6fr)"><b>Maintien</b><p><span class="a-valider">[Visite de contrôle annuelle, à confirmer.]</span> L'exigence reste celle de la première nuit.</p></li>
+          <li class="rv" style="grid-template-columns:minmax(0,3fr) minmax(0,6fr)"><b>Retrait</b><p>Le Label peut être suspendu ou retiré si la maison ne satisfait plus aux critères, selon la procédure de la Charte.</p></li>
+        </ol></div>
     </div>
   </section>
-
   <section class="salle">
-    <div class="wrap"><figure class="citation rv" style="margin:0 auto"><blockquote>Ce n'est pas un label que l'on obtient. C'est une reconnaissance que l'on mérite.</blockquote><cite>Nina Vienney · Fondatrice</cite></figure></div>
+    <div class="wrap" style="text-align:center"><p class="manifeste" data-mots>Ce n'est pas un label que l'on obtient. C'est une reconnaissance que l'on mérite.</p><p class="rv" style="margin-top:2.4rem"><span class="signature">Nina Vienney</span></p></div>
   </section>
 </Maison>

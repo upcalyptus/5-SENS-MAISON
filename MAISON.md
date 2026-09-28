@@ -23,6 +23,14 @@ Le menu est un plan : chaque pièce a son numéro, son nom et ce qu'on y trouve.
 | 05 | Le Rendez-vous | /rendez-vous | ouverte, calendrier à brancher |
 | 06–09 | Comité, Maisons, Journal, Presse | — | fermées jusqu'à contenu réel |
 
+## Version 3 : ce qui fait la différence
+
+- **Le cartel** : chaque seuil montre la photo entière, et le titre est posé sur un cartel clair, comme dans un musée.
+- **Les transitions entre pièces** : l'image de la pièce suivante devient le seuil de la page d'après (View Transitions, Chrome et Safari récents ; sinon, passage normal).
+- **Un défilement fluide** (Lenis), des photos qui se dévoilent et glissent en léger parallaxe, des titres qui apparaissent mot à mot.
+- **Une attention par pièce** : la plaque qui tourne sur elle-même (Label), les cinq salons en galerie horizontale (Cinq sens), l'horloge de l'immersion qui avance au fil du défilement (Méthode), l'engagement signé (Charte), le portrait de Nina qui accompagne la lecture (Rendez-vous).
+- Tout reste fixe avec « Réduire les animations », et la galerie redevient verticale sur téléphone.
+
 ## Technique
 
 - Astro 5, pages statiques. `npm install` puis `npm run build` (sortie dans `dist/`). Vercel lit `vercel.json` : aucun réglage à faire.
