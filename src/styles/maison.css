@@ -313,3 +313,26 @@ html[data-lumiere="nuit"],html[data-lumiere="doree"]{--muted:#5B5850;--lt:#66533
 .galerie .compteur{color:var(--lt)}.galerie .compteur i.on{color:var(--encre)}
 .doc .serif[style*="--lf"]{color:var(--lt)!important}
 .liste-num .n::before{content:attr(data-n)}.liste-num .n-texte{color:var(--lt)}
+.marque img{filter:none!important;border-radius:50%;box-shadow:0 3px 8px rgba(110,85,45,.28)}
+/* En-tête sur téléphone : une seule ligne, le plan en icône */
+@media (max-width:720px){
+  .entete .wrap{height:64px}
+  .marque{gap:.6rem}.marque img{width:34px;height:34px}
+  .marque b{font-size:.74rem;letter-spacing:.13em;white-space:nowrap}
+  .actions{gap:.5rem}
+  .langue{padding:.6rem .7rem;font-size:10.5px}
+  .plan-btn{font-size:0;gap:0;padding:.75rem .8rem}
+}
+@media (max-width:360px){.marque b{font-size:.66rem;letter-spacing:.1em}}
+/* Focus clavier : un fin trait laiton arrondi, jamais un cadre épais */
+a:focus,button:focus{outline:none}
+a:focus-visible,button:focus-visible,summary:focus-visible,[tabindex]:focus-visible{outline:1.5px solid var(--lf)!important;outline-offset:4px!important;border-radius:100px}
+input:focus-visible,select:focus-visible,textarea:focus-visible{outline:1.5px solid var(--lf)!important;outline-offset:2px!important}
+.brand:focus-visible,.marque:focus-visible{border-radius:100px}
+/* En-tête identique à l'accueil : capsule de verre en haut de page, barre posée au défilement */
+.entete{top:calc(1.25rem + env(safe-area-inset-top,0px));left:50%;right:auto;transform:translateX(-50%);width:calc(100% - 3rem);max-width:1400px;border-radius:100px;background:rgba(255,255,255,.42);-webkit-backdrop-filter:blur(28px);backdrop-filter:blur(28px);border:1px solid rgba(255,255,255,.75);box-shadow:0 10px 40px rgba(110,85,45,.12);transition:top .5s var(--out),width .5s var(--out),max-width .5s var(--out),border-radius .5s var(--out),background-color .5s var(--out),box-shadow .5s var(--out)}
+.entete .wrap{max-width:none;height:64px;padding:0 .7rem 0 1.1rem}
+.entete.pose{top:0;width:100%;max-width:none;border-radius:0;background:rgba(255,255,255,.95);border-color:transparent;border-bottom:1px solid var(--filet-doux);box-shadow:0 4px 30px rgba(110,85,45,.05);padding-top:env(safe-area-inset-top,0px)}
+.entete.pose .wrap{padding:0 var(--pad)}
+@media (max-width:720px){.entete{width:calc(100% - 1.6rem);top:calc(.8rem + env(safe-area-inset-top,0px))}.entete .wrap{height:58px;padding:0 .5rem 0 .8rem}}
+@media (prefers-reduced-motion:reduce){.entete{transition:none}}

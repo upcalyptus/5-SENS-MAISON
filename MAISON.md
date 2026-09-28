@@ -91,3 +91,20 @@ Règles appliquées partout (`src/styles/maison.css`, fin du fichier) :
 - En-tête, pied de page, plan de la maison et plaque qui tourne (Label) : la plaque photographique réaliste, détourée en cercle (`plaque-512.webp`, `plaque-1024.webp`), servie à la bonne taille pour les écrans Retina.
 - Icône d'onglet : `favicon.png` (plaque réaliste).
 - Les versions vectorielles (`assets/embleme/`) restent pour l'impression et la gravure.
+
+## Correctifs logo (version 10)
+
+- Les plaques (logo, pied de page, plan, favicon) sont re-détourées proprement : transparence totale hors du cercle, plus aucun halo.
+- Suppression du fond sable qui s'affichait derrière les images « responsive » de l'accueil, dont le logo.
+- Ombre du logo en box-shadow ronde (le filtre drop-shadow créait un carré sous l'en-tête flouté sur Safari).
+- En-tête des pièces sur téléphone : une seule ligne, plan en icône.
+
+## Important : remplacer une image
+
+Les fichiers de `/assets`, `/fonts` et `/lib` sont gardés **un an** en mémoire par les navigateurs (c'est ce qui rend le site rapide).
+Pour remplacer une image, **changer aussi son nom** (par exemple `plaque-v3.webp`) et mettre à jour les liens : sinon, les visiteurs déjà venus continueront de voir l'ancienne.
+C'est pourquoi les logos s'appellent désormais `plaque-v2*.webp` et `favicon-v2.png`.
+
+## Focus clavier
+
+Un fin trait laiton arrondi autour de l'élément sélectionné au clavier (jamais au clic de souris).
