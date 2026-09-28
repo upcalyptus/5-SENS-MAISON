@@ -63,7 +63,7 @@ Règles appliquées partout (`src/styles/maison.css`, fin du fichier) :
 
 ## Emblème vectoriel
 
-`public/assets/embleme/` : version laiton (écran), versions monochromes laiton-texte, blanc et noir (pour le graveur). Lettres vectorisées depuis Fraunces : nettes à toute taille, prêtes pour l'impression et la gravure.
+`public/assets/embleme/` : version laiton (écran), versions monochromes laiton-texte, blanc et noir (pour le graveur). Les lettres, les cinq points, les filets et le losange sont vectorisés directement depuis l'image originale de la plaque (tracé, pas redessiné) : mêmes formes que le PNG, nettes à toute taille. Le laiton, les rivets et le reflet sont recréés en vectoriel.
 
 ## Version 6 : une photo, une seule place
 
@@ -85,3 +85,9 @@ Règles appliquées partout (`src/styles/maison.css`, fin du fichier) :
 - **Aucune ressource tierce** hors Cal.com et Plausible : bibliothèques (GSAP, Lenis, Three.js) et polices hébergées sur le site, politique de sécurité resserrée, cache d'un an sur /assets, /fonts, /lib.
 - **Contrôle automatique d'accessibilité (axe)** sur les 18 pages FR et EN : aucune erreur, hors les mots de la phrase-manifeste de l'accueil pendant leur animation.
 - **Aucun lien interne cassé** (vérifié sur toutes les pages).
+
+## Emblème à l'écran (version 9)
+
+- En-tête, pied de page, plan de la maison et plaque qui tourne (Label) : la plaque photographique réaliste, détourée en cercle (`plaque-512.webp`, `plaque-1024.webp`), servie à la bonne taille pour les écrans Retina.
+- Icône d'onglet : `favicon.png` (plaque réaliste).
+- Les versions vectorielles (`assets/embleme/`) restent pour l'impression et la gravure.
