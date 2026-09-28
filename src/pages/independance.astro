@@ -1,0 +1,41 @@
+---
+import Maison from '../layouts/Maison.astro';
+const jamais = [
+  ['Vendre un résultat','Une maison paie son évaluation, jamais son Label. Le résultat ne se négocie pas.'],
+  ['Prévenir les équipes','La date de l\'immersion n\'est connue que de la direction. Ce que nous observons est ce que vivent vos hôtes.'],
+  ['Évaluer des personnes','Nous évaluons une expérience, pas des collaborateurs. Aucun nom n\'apparaît dans nos rapports.'],
+  ['Publier sans accord','Les résultats détaillés restent confidentiels. Seule l\'attribution du Label peut être rendue publique, avec votre accord pour l\'indice.'],
+  ['Évaluer un proche','Un expert lié à une maison, par un contrat ou une relation personnelle, ne l\'évalue pas.']
+];
+---
+<Maison titre="La Charte d'indépendance" piece="04" image="/assets/img-vue.webp"
+  description="La Charte d'indépendance de 5 Sens Collection : ce que nous nous interdisons, pour que le Label ne puisse jamais s'acheter."
+  adieu="Vous savez désormais ce que nous faisons, et ce que nous ne ferons jamais. Il reste à nous rencontrer.">
+  <Fragment slot="seuil">
+    <h1>Ce que l'on ne peut pas acheter.</h1>
+    <p>Un label n'a de valeur que s'il est incontestable. Voici les engagements qui le rendent tel.</p>
+  </Fragment>
+  <section class="salle">
+    <div class="wrap">
+      <span class="eyebrow rv">Ce que nous ne ferons jamais</span>
+      <h2 class="rv">Cinq interdits.</h2>
+      <ol class="filets" style="list-style:none">
+        {jamais.map(([a, b], i) => <li class="rv"><b><span class="serif" style="color:var(--lf);margin-right:1rem">{String(i + 1).padStart(2, '0')}</span>{a}</b><p>{b}</p></li>)}
+      </ol>
+    </div>
+  </section>
+  <section class="salle lin">
+    <div class="wrap deux">
+      <div class="rv"><span class="eyebrow">Si vous contestez</span><h2>Un résultat se discute. Il ne s'efface pas.</h2></div>
+      <div class="rv"><p class="lead">Une maison peut demander, dans les <span class="a-valider">[30]</span> jours suivant la restitution, un nouvel examen des critères qu'elle conteste. Il est mené par un second expert qui n'a pas participé à l'immersion.</p>
+      <p class="muted" style="margin-top:1rem">Le règlement complet d'attribution du Label est remis avec chaque proposition.</p></div>
+    </div>
+  </section>
+  <section class="salle">
+    <div class="wrap" style="text-align:center">
+      <p class="manifeste rv">Nous prenons l'engagement que chaque Label attribué pourra être défendu, critère par critère, devant la maison qui l'a reçu comme devant celle qui ne l'a pas obtenu.</p>
+      <p class="rv serif" style="font-style:italic;font-size:1.8rem;margin-top:2.4rem;color:var(--lt)">Nina Vienney</p>
+      <p class="rv eyebrow" style="margin-top:.4rem">Fondatrice · <span class="a-valider">[date de signature]</span></p>
+    </div>
+  </section>
+</Maison>

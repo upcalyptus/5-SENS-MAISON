@@ -1,0 +1,99 @@
+---
+import '../styles/maison.css';
+import { ouvertes, suivante } from '../data/pieces.js';
+const { titre, description, piece, image, adieu } = Astro.props;
+const chemin = Astro.url.pathname.replace(/\.html$/, '');
+const next = suivante(chemin);
+---
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{titre} · 5 Sens Collection</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={new URL(chemin, Astro.site)}>
+<meta property="og:title" content={`${titre} · 5 Sens Collection`}>
+<meta property="og:description" content={description}>
+<meta property="og:image" content={new URL('/assets/partage.jpg', Astro.site)}>
+<link rel="icon" href="/assets/favicon.png">
+<link rel="preload" href="/fonts/Fraunces.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#F8F7F4">
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+<div class="lumiere l1" aria-hidden="true"></div><div class="lumiere l2" aria-hidden="true"></div>
+<header class="entete" id="entete">
+  <div class="wrap">
+    <a class="marque" href="/"><img src="/assets/plaque.webp" width="404" height="410" alt=""><span><b>5 SENS COLLECTION</b><small>Label d'excellence sensorielle</small></span></a>
+    <div class="actions">
+      <a class="btn btn-p" href="/rendez-vous">Réserver un échange</a>
+      <button class="plan-btn" id="plan-ouvrir" aria-expanded="false" aria-controls="plan"><i aria-hidden="true"></i>Plan de la maison</button>
+    </div>
+  </div>
+</header>
+<div class="plan" id="plan" role="dialog" aria-modal="true" aria-label="Plan de la maison">
+  <div class="plan-img"><img id="plan-image" src={ouvertes[1].img} alt=""></div>
+  <div class="plan-corps">
+    <button class="plan-fermer" id="plan-fermer">Fermer</button>
+    <span class="eyebrow">Plan de la maison</span>
+    <p class="serif" style="font-size:clamp(1.4rem,2.4vw,2rem);line-height:1.25;max-width:24ch">Chaque pièce se visite dans l'ordre, ou à votre guise.</p>
+    <ol>
+      {ouvertes.map(p => <li><a href={p.href} data-img={p.img} aria-current={p.href === chemin || (p.href === '/' && chemin === '') ? 'page' : undefined}><span>{p.n}</span><b>{p.titre}</b><em>{p.note}</em></a></li>)}
+    </ol>
+    <p class="plan-pied">Paris · Genève · Côte d'Azur · <a href="mailto:contact@5senscollection.com">contact@5senscollection.com</a></p>
+  </div>
+</div>
+<main id="contenu">
+  <section class="seuil">
+    <img src={image} alt="" fetchpriority="high">
+    <div class="wrap">
+      <p class="piece">Pièce {piece}</p>
+      <slot name="seuil" />
+    </div>
+  </section>
+  <slot />
+  <a class="depart" href={next.href}>
+    <figure><img src={next.img} alt="" loading="lazy"></figure>
+    <div>
+      <p class="adieu">{adieu}</p>
+      <span class="eyebrow">Pièce suivante · {next.n}</span>
+      <b>{next.titre}</b>
+      <span class="suite">Entrer</span>
+    </div>
+  </a>
+</main>
+<footer class="pied">
+  <img src="/assets/plaque.webp" width="404" height="410" alt="">
+  <b>5 SENS COLLECTION</b>
+  <nav aria-label="Pied de page">{ouvertes.map(p => <a href={p.href}>{p.titre}</a>)}</nav>
+  <p>Paris · Genève · Côte d'Azur · contact@5senscollection.com · <span class="heure" id="heure"></span></p>
+</footer>
+<script>
+  // En-tête qui se pose au défilement
+  const ent = document.getElementById('entete');
+  const pose = () => ent.classList.toggle('pose', scrollY > 40);
+  addEventListener('scroll', pose, { passive: true }); pose();
+  // Le plan de la maison
+  const plan = document.getElementById('plan'), ouvrir = document.getElementById('plan-ouvrir'), fermer = document.getElementById('plan-fermer'), img = document.getElementById('plan-image');
+  const toggle = (o) => { plan.classList.toggle('ouvert', o); ouvrir.setAttribute('aria-expanded', o); document.body.style.overflow = o ? 'hidden' : ''; if (o) fermer.focus(); else ouvrir.focus(); };
+  ouvrir.addEventListener('click', () => toggle(true)); fermer.addEventListener('click', () => toggle(false));
+  addEventListener('keydown', e => { if (e.key === 'Escape' && plan.classList.contains('ouvert')) toggle(false); });
+  plan.querySelectorAll('li a').forEach(a => a.addEventListener('mouseenter', () => { img.src = a.dataset.img; }));
+  // Apparitions : vérification au défilement (pas d'IntersectionObserver, cf. dossier de reprise)
+  const els = [...document.querySelectorAll('.rv')];
+  let tick = false;
+  const voir = () => { tick = false; const lim = innerHeight * 0.92; for (const el of els) if (!el.classList.contains('vu') && el.getBoundingClientRect().top < lim) el.classList.add('vu'); };
+  const demande = () => { if (!tick) { tick = true; requestAnimationFrame(voir); } };
+  addEventListener('scroll', demande, { passive: true }); addEventListener('resize', demande); voir(); setTimeout(voir, 400);
+  // La lumière suit l'heure de la visite (?lumiere=aube|jour|doree|nuit pour prévisualiser)
+  const noms = { aube: "l'aube", jour: 'le plein jour', doree: "l'heure dorée", nuit: 'la nuit' };
+  const forcee = new URLSearchParams(location.search).get('lumiere');
+  const heure = () => { const d = new Date(), h = d.getHours() + d.getMinutes() / 60;
+    const ph = noms[forcee] ? forcee : (h >= 5 && h < 9 ? 'aube' : h < 17 && h >= 9 ? 'jour' : h >= 17 && h < 21 ? 'doree' : 'nuit');
+    document.documentElement.dataset.lumiere = ph;
+    const el = document.getElementById('heure'); if (el) el.textContent = d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }) + ' · ' + noms[ph]; };
+  heure(); setInterval(heure, 60000);
+</script>
+</body>
+</html>

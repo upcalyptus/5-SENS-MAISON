@@ -1,0 +1,38 @@
+---
+import Maison from '../layouts/Maison.astro';
+---
+<Maison titre="Le Rendez-vous" piece="05" image="/assets/nina-portrait.webp"
+  description="Réservez un échange confidentiel de trente minutes avec Nina Vienney, fondatrice de 5 Sens Collection, pour situer votre maison et évaluer son éligibilité."
+  adieu="Merci de votre visite. La maison reste ouverte : revenez au seuil quand vous le souhaitez.">
+  <Fragment slot="seuil">
+    <h1>Trente minutes, en confidence.</h1>
+    <p>Un échange avec Nina Vienney pour situer votre maison, répondre à vos questions et évaluer son éligibilité au Label.</p>
+  </Fragment>
+  <section class="salle">
+    <div class="wrap deux">
+      <div class="rv"><span class="eyebrow">Comment se passent ces trente minutes</span><h2>Une conversation, pas une présentation.</h2>
+        <ol class="filets" style="list-style:none">
+          <li style="grid-template-columns:5rem 1fr"><span class="serif" style="color:var(--lf)">0 – 5</span><p>Vous présentez votre maison, en quelques mots.</p></li>
+          <li style="grid-template-columns:5rem 1fr"><span class="serif" style="color:var(--lf)">5 – 20</span><p>Nina vous pose les questions qu'elle poserait pendant l'immersion.</p></li>
+          <li style="grid-template-columns:5rem 1fr"><span class="serif" style="color:var(--lf)">20 – 30</span><p>Elle vous dit franchement si l'audit a du sens pour vous, et sous quelle forme.</p></li>
+        </ol>
+      </div>
+      <div class="rv"><span class="eyebrow">Pour préparer l'échange</span><p class="lead">Trois questions à garder en tête, sans rien avoir à rédiger :</p>
+        <ul class="filets">
+          <li style="grid-template-columns:1fr"><b>Que souhaitez-vous que vos hôtes retiennent de votre maison ?</b></li>
+          <li style="grid-template-columns:1fr"><b>Qu'avez-vous cessé de remarquer ?</b></li>
+          <li style="grid-template-columns:1fr"><b>Que vous disent vos hôtes sans que ce soit écrit dans leurs avis ?</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="salle lin" id="calendrier">
+    <div class="wrap" style="text-align:center">
+      <span class="eyebrow rv">Choisir votre créneau</span>
+      <h2 class="rv" style="margin:0 auto 1.4rem">Quand vous le souhaitez.</h2>
+      <div id="cal" class="rv" style="max-width:980px;margin:2rem auto 0;min-height:120px"></div>
+      <p class="rv muted" id="cal-secours" style="margin-top:1.4rem">Le calendrier arrive bientôt. En attendant, écrivez à <a href="mailto:contact@5senscollection.com?subject=Échange%20confidentiel">contact@5senscollection.com</a> : Nina vous répond personnellement sous 48 heures.</p>
+      <p class="rv eyebrow" style="margin-top:2rem">Sans engagement · Strictement confidentiel</p>
+    </div>
+  </section>
+</Maison>

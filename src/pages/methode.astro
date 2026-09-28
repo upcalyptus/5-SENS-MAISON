@@ -1,0 +1,55 @@
+---
+import Maison from '../layouts/Maison.astro';
+const heures = [
+  ['15 h 00','L\'arrivée','Les trente premières secondes : le seuil, le premier regard, la première phrase, le premier parfum.'],
+  ['16 h 30','La chambre','La lumière d\'après-midi, le linge, la température des sols, le bruit de la ventilation.'],
+  ['19 h 00','L\'heure dorée','Le passage du jour au soir : la lumière change-t-elle avec lui ?'],
+  ['20 h 30','La table','Le rituel, la céramique, le rythme du service, ce que l\'on retient d\'un plat.'],
+  ['23 h 30','La nuit','Le silence réel, les bruits techniques, l\'obscurité, le sommeil.'],
+  ['07 h 30','Le réveil','La lumière du matin, le premier café, la douche, les matières au réveil.'],
+  ['11 h 00','Le départ','Ce que la maison laisse : le dernier mot, le dernier geste, le souvenir.']
+];
+const etapes = [
+  ['01','Immersion','24 à 48 heures, en toute discrétion, dans les conditions réelles d\'un hôte.'],
+  ['02','Diagnostic sensoriel','Plus de cent critères : chambres, suites, lobby, spa, tables.'],
+  ['03','Indice ICS','Votre score sur 100, dimension par dimension, vos forces, vos priorités.'],
+  ['04','Manuel opérationnel','Quoi faire, pourquoi, et comment le déployer avec vos équipes.'],
+  ['05','Plan d\'action','La feuille de route 30 / 60 / 90 jours.'],
+  ['06','Le Label','Attribué à partir de 88 sur 100.']
+];
+---
+<Maison titre="La Méthode" piece="03" image="/assets/img-methode.webp"
+  description="La méthode 5 Sens Collection : une immersion de 24 à 48 heures, heure par heure, six étapes et trois livrables prêts à déployer."
+  adieu="Une méthode ne vaut que par son indépendance. Voici ce que nous nous interdisons.">
+  <Fragment slot="seuil">
+    <h1>Quarante-huit heures, heure par heure.</h1>
+    <p>Une immersion discrète, vécue comme un hôte l'aurait vécue. Deux heures seulement mobilisent vos équipes.</p>
+  </Fragment>
+  <section class="salle">
+    <div class="wrap">
+      <span class="eyebrow rv">Une immersion, telle qu'elle se vit</span>
+      <h2 class="rv">Ce que Nina observe, du seuil au départ.</h2>
+      <ol class="filets" style="list-style:none">
+        {heures.map(([h, t, d]) => <li class="rv" style="grid-template-columns:8rem 1fr 2fr;align-items:baseline"><span class="serif" style="color:var(--lf);font-size:1.1rem">{h}</span><b>{t}</b><p>{d}</p></li>)}
+      </ol>
+      <p class="muted rv" style="margin-top:1.4rem;font-size:.9rem">Les horaires sont donnés à titre d'exemple : chaque immersion suit le rythme réel de la maison.</p>
+    </div>
+  </section>
+  <section class="salle lin">
+    <div class="wrap">
+      <span class="eyebrow rv">Six étapes</span>
+      <h2 class="rv">Sans zone d'ombre.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0 3rem;margin-top:2rem">
+        {etapes.map(([n, t, d]) => <div class="rv" style="border-top:1px solid var(--filet);padding:1.6rem 0"><p class="serif" style="color:var(--lf)">{n}</p><h3 style="font-size:1.5rem;font-weight:400;margin:.3rem 0 .4rem">{t}</h3><p class="muted">{d}</p></div>)}
+      </div>
+    </div>
+  </section>
+  <section class="salle">
+    <div class="wrap deux">
+      <figure class="rv"><img src="/assets/img-methode.webp" alt="Les livrables imprimés de l'audit" loading="lazy" width="1600" height="1070" style="width:100%;aspect-ratio:4/3;object-fit:cover"></figure>
+      <div class="rv"><span class="eyebrow">Ce que vous recevez</span><h2>Trois livrables, prêts à déployer.</h2>
+        <ul class="filets"><li><b>L'indice ICS</b><p>Dimension par dimension, comparable dans le temps.</p></li><li><b>Le manuel opérationnel</b><p>Et le tableau des irritants, classés par urgence.</p></li><li><b>La feuille de route</b><p>30 / 60 / 90 jours : les gains immédiats, puis les chantiers de fond.</p></li></ul>
+      </div>
+    </div>
+  </section>
+</Maison>
